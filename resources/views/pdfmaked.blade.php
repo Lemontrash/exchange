@@ -1,0 +1,12 @@
+{{$firstname}}
+<br>
+{{$secondname}}
+<br>
+{{$lastname}}
+<br>
+{{$countrytname}}
+<br>
+{{$cityzenship}}
+<br>
+{{$plasceofbirth}}
+<br>
