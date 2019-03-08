@@ -35,5 +35,9 @@ class Business extends Authenticatable
         });
     }
 
+    public function individuals(){
+        return $this->hasMany(BusinessIndividuals::class);
+    }
+
 
 }

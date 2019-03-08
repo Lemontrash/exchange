@@ -42,7 +42,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-//        dd($request);
+
         $this->middleware('guest');
     }
 
@@ -52,18 +52,18 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
+
     protected function validator(array $data)
     {
 
         return Validator::make($data, [
-            'first-name' => ['required', 'string', 'max:255'],
-            'second-name' => ['required', 'string', 'max:255'],
-            'telephone' => ['required', 'string'],
-//            'role' => ['required'],
-            'email' => ['required', 'string', 'email', 'max:255'],
-            'password1' => ['required', 'string', 'min:6',],
-            'password2' => ['required', 'string', 'min:6', 'same:password1'],
+            'firstName' => ['required', 'string', 'max:255'],
+//            'secondName' => ['required', 'string', 'max:255'],
+//            'telephone' => ['required', 'string'],
+//            'email' => ['required', 'string', 'email', 'max:255'],
+//            'password1' => ['required', 'string', 'min:6',],
         ]);
+        dd(123);
 
     }
 
@@ -71,28 +71,29 @@ class RegisterController extends Controller
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
-//     * @return \App\User
+     * @return \App\User
      */
     protected function create(array $data)
     {
-        if ($data['role'] == 'individual'){
+//        dd($data);
+        if ($data['accountType'] == 'Individual'){
             return Individual::create([
-                'firstname' => $data['first-name'],
-                'lastname' => $data['second-name'],
-                'telephone' => $data['telephone'],
-                'role' => $data['role'],
+                'firstName' => $data['firstName'],
+                'lastName' => $data['lastName'],
+                'mobile' => $data['phoneNumber'],
+                'role' => $data['accountType'],
                 'email' => $data['email'],
-                'password' => Hash::make($data['password1']),
+                'password' => Hash::make($data['password']),
             ]);
         }
-        if ($data['role'] == 'business'){
+        if ($data['accountType'] == 'Business'){
             return Business::create([
-                'firstname' => $data['first-name'],
-                'lastname' => $data['second-name'],
-                'telephone' => $data['telephone'],
-                'role' => $data['role'],
+                'firstName' => $data['firstName'],
+                'lastName' => $data['lastName'],
+                'mobile' => $data['phoneNumber'],
+                'role' => $data['accountType'],
                 'email' => $data['email'],
-                'password' => Hash::make($data['password1']),
+                'password' => Hash::make($data['password']),
             ]);
         }
 
