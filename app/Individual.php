@@ -7,7 +7,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Builder;
 
-class Individual extends Authenticatable
+class Individual extends Authenticatable implements MustVerifyEmail
 {
     use Notifiable;
     protected $table = 'users';

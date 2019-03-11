@@ -8,11 +8,9 @@
    
     <body>
     	<div class="formsWrapper">
-    		<div id="backArrow"><i class="fal fa-long-arrow-left"></i> Back</div>
+    		<div id="backArrow"><a style="color: whitesmoke; text-decoration: none;" href="{{redirect('home')}}"><i class="fal fa-long-arrow-left"></i> Back</a></div>
     		@yield('content')
     	</div>
-        
-        
         @include('scriptAssets')
     </body>
 </html>

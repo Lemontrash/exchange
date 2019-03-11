@@ -51,7 +51,7 @@ class LoginController extends Controller
             return redirect('/home');
         }
         else
-            dd($request);
+            return back();
 //        $business = Business::all();
 //        foreach ($business as $busy) {
 //            if (Hash::check(Input::get('password'), $busy->password)){

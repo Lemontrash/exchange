@@ -140,6 +140,12 @@ input[type="number"] {
 	color:#9a9ea9;
 	font-family: 'Rubik', sans-serif;
 }
+.formBody .formButton{
+	width:120px;
+	padding:0 24px;
+	margin-top:24px;
+	position: relative;
+}
 .formBody button {
 	text-transform: uppercase;
 	margin:36px 24px;
@@ -155,6 +161,20 @@ input[type="number"] {
 	cursor:pointer;
 	border-radius:5px;
 }
+.formBody button.file {
+	margin:36px 24px;
+	border-width: 0;
+	background: linear-gradient(to right, rgba(0,154,255,1) 0%,rgba(0,123,204,1) 100%);
+	display: block;
+	padding:14px 0;
+	width:calc(20% - 48px);
+	color:#fff;
+	font-size:9px;
+	font-weight: 300;
+	font-family: 'Rubik', sans-serif;
+	cursor:pointer;
+	border-radius:5px;
+}
 .formBody a.register  {
 	text-decoration: none;
 	text-align: center;
@@ -166,7 +186,7 @@ input[type="number"] {
 	padding:14px 0;
 	width:calc(100% - 48px);
 	color:#fff;
-	font-size:12px;
+	font-size:13px;
 	font-weight: 400;
 	font-family: 'Rubik', sans-serif;
 	cursor:pointer;

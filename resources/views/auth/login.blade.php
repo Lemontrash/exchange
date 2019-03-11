@@ -28,7 +28,7 @@
             </div>
             <input type="checkbox" class="checkbox" id="checkbox" />
             <label for="checkbox">Я переключаю чекбокс</label>
-            <a href="{{route('retrieve')}}" class="forgot">Forgot password?</a></p>
+            <a href="{{route('password.request')}}" class="forgot">Forgot password?</a></p>
             <button name="submit" type="submit">Sign In</button>
             <a href="{{route('register')}}" class="register">Don`t have an account?</a>
         </form>

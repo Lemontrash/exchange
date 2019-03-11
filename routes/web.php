@@ -16,6 +16,9 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+Route::get('email/verify', 'Auth\VerificationController@show')->name('verification.notice');
+Route::get('email/verify/{id}', 'Auth\VerificationController@verify')->name('verification.verify');
+Route::get('email/resend', 'Auth\VerificationController@resend')->name('verification.resend');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -40,6 +43,9 @@ Route::get('/password', function (){
 Route::post('/forgot', 'MailController@forgotPassword')->name('forgot');
 
 Route::get('/test', 'Test@test')->name('test');
+Route::get('/files',function (){
+    return view('filesVerify');
+})->name('test');
 
 // Password Reset Routes...
 Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
