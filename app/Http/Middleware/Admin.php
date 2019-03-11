@@ -17,10 +17,13 @@ class Admin
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::user()->role == 'admin'){
+//    dd(!Auth::check());
+        if (!Auth::check()){
+            return back();
+        }
+        else if (Auth::user()->role == 'admin'){
             return $next($request);
         }
-        else
-            return back();
+        return back();
     }
 }

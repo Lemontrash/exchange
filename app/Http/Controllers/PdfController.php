@@ -4,12 +4,16 @@ namespace App\Http\Controllers;
 
 //use Barryvdh\DomPDF\PDF;
 use App\Business;
+use App\Files;
 use App\Individual;
 use Barryvdh\DomPDF\Facade;
 use Barryvdh\DomPDF\PDF;
+use FontLib\AdobeFontMetrics;
 use http\Client\Curl\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Dompdf\FontMetrics;
+use phpDocumentor\Reflection\File;
 
 class PdfController extends Controller
 {
@@ -38,17 +42,7 @@ class PdfController extends Controller
         $nameOfBank         = $request->get('Name-of-Bank');
         $TAX                = $request->get('TAX');
         $TAXCountry         = $request->get('TAX-country');
-
-
-        $userId = Auth::id();
-
-        if (Individual::find($userId)){
-            $user = Individual::find($userId);
-
-            $data = [
-                'firstName'        => $user->firstName,
-                'secondName'       => $secondname,
-                'lastName'         => $user->lastName,
+        $data = [
                 'country'           => $countrytname,
                 'citizenship'       => $cityzenship,
                 'placeOfBirth'    => $plasceofbirth,
@@ -62,20 +56,42 @@ class PdfController extends Controller
                 'savings'           => $savings,
                 'sourceOfFunds'   => $sourceOfFunds,
                 'investAnnually'   => $investAnnually,
-                'nameOfBank'      => $nameOfBank,
+                'nameOfBank'        => $nameOfBank,
                 'taxId'            => $TAX,
                 'countryTaxes'     => $TAXCountry,
             ];
-            $user->update($data);
-        }
-        else if (Business::find($userId)){
+        $userId = Auth::id();
 
-        }
-        else
-            return back();
+        $file = Files::create([
+            'userId'            => Auth::id(),
+//            'firstName'         => Auth::user()->firstName,
+//            'secondName'        => $secondname,
+//            'lastName'          => Auth::user()->lastName,
+            'country'           => $countrytname,
+            'citizenship'       => $cityzenship,
+            'placeOfBirth'      => $plasceofbirth,
+            'address'           => $address,
+            'landLine'          => $landLine,
+            'city'              => $city,
+            'zip'               => $zip,
+            'employment'        => $employment,
+            'industry'          => $industry,
+            'annualIncome'      => $annualIncome,
+            'savings'           => $savings,
+            'sourceOfFunds'     => $sourceOfFunds,
+            'investAnnually'    => $investAnnually,
+            'nameOfBank'        => $nameOfBank,
+            'taxId'             => $TAX,
+            'countryTaxes'      => $TAXCountry,
+        ]);
 
-        $pdf = Facade::loadView('pdfmaked', $data);
-        return $pdf->stream();
+
+        return view('success');
+
+//        $pdf = Facade::loadView('pdfmaked', $data);
+//
+//        return $pdf->stream();
+
     }
 
     public function show(){
