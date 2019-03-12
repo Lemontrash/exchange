@@ -39,9 +39,5 @@ class Business extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(BusinessIndividuals::class);
     }
 
-    public function files(){
-        return $this->hasMany(Files::class);
-    }
-
 
 }

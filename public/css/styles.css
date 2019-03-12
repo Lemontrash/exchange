@@ -3,7 +3,11 @@
 body,html {
 	margin:0;
 	font-family: 'Rubik', sans-serif;
+	font-size: 14px;
 	color:#fff;
+}
+input, textarea, select, button{
+	font-size: 14px;
 }
 input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;

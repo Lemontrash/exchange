@@ -35,9 +35,5 @@ class Individual extends Authenticatable implements MustVerifyEmail
         });
     }
 
-    public function files(){
-        return $this->hasMany(Files::class);
-    }
-
 
 }
