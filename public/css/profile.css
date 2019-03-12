@@ -22,6 +22,13 @@ body {
   padding-right: 28px;
   padding-left: 28px;
   cursor: pointer;
+  text-decoration: none;
+}
+
+.theme-btn:hover,
+.theme-btn:focus,
+.theme-btn:active {
+  text-decoration: none;
 }
 
 .btn-pink {
@@ -227,7 +234,6 @@ body {
 }
 
 .profile-content {
-  box-shadow: -13px 7.5px 20px 0 rgba(24, 28, 38, 0.4);
   background-color: #343c53;
   margin-top: 100px;
   margin-left: 300px;
@@ -321,5 +327,48 @@ body {
 #profile_update_password {
   text-transform: uppercase;
   font-weight: 700;
+}
+
+.table {
+  width: 100%;
+  max-width: 100%;
+  background: transparent;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.table thead th {
+  color: #fff;
+}
+
+.table th {
+  padding: 20px;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.alternate-rows-table tbody tr:nth-child(2n) {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.profile-content .table {
+  border-bottom: 1px solid rgba(142, 205, 246, 0.1);
+}
+
+.profile-content .table .amount-col {
+  font-weight: 700;
+}
+
+.profile-content .table tbody tr {
+  color: rgba(255, 255, 255, 0.5);
+  transition: all 0.15s ease-in-out;
+}
+
+.profile-content .table tbody tr:hover {
+  color: #fff;
 }
 

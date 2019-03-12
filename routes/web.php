@@ -16,7 +16,10 @@ Route::get('/', function () {
 });
 
 Route::get('/profile', function () {
-    return view('profile');
+    return view('profileSettings');
+});
+Route::get('/profile/files-history', function () {
+    return view('profileFilesHistory');
 });
 
 Auth::routes();
