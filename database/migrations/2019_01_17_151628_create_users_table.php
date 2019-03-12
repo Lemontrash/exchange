@@ -17,13 +17,13 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
             $table->string('email', 250)->unique()->charset('utf8');
-
+            $table->string('avatar', 250)->nullable();
             $table->string('firstName', 250);
             $table->string('secondName', 250)->nullable();
             $table->string('lastName', 250);
-            $table->string('country', 250)->nullable();//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-            $table->string('city', 250)->nullable();//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-            $table->date('dateOfBirth')->nullable();//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            $table->string('country', 250)->nullable();
+            $table->string('city', 250)->nullable();
+            $table->date('dateOfBirth')->nullable();
             $table->string('password');
             $table->string('mobile', 250);
             $table->timestamp('email_verified_at')->nullable();
@@ -33,14 +33,6 @@ class CreateUsersTable extends Migration
             $table->softDeletes();
         });
 
-//        DB::table('users')->insert(
-//            array(
-//                'email' => 'dummy@sample.com',
-//                'login' => 'dummy',
-//                'password' => 'you cant login with this',
-//                'role' => 'user',
-//            )
-//        );
 
     }
 

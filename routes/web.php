@@ -27,6 +27,7 @@ Route::get('/password', function (){
 Route::get('/files',function (){
     return view('filesVerify');
 })->name('test');
+Route::post('/files', 'UserController@store')->name('files');
 
 
 // Gets
@@ -35,7 +36,7 @@ Route::get('email/verify/{id}', 'Auth\VerificationController@verify')->name('ver
 Route::get('email/resend', 'Auth\VerificationController@resend')->name('verification.resend');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/pdf', 'PdfController@show')->name('pdf');
-Route::get('/pdf1', 'PdfController@show')->name('pdf');
+//Route::get('/pdf1', 'PdfController@show')->name('pdf');
 Route::get('/changePassword','HomeController@showChangePasswordForm');
 Route::get('/contactUs','MessageController@showMessageForm');
 
