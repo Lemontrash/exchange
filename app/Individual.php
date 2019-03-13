@@ -6,10 +6,11 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Builder;
+use Laravel\Passport\HasApiTokens;
 
 class Individual extends Authenticatable implements MustVerifyEmail
 {
-    use Notifiable;
+    use HasApiTokens, Notifiable;
     protected $table = 'users';
     protected $fillable = [
         'firstName', 'secondName', 'lastName', 'email','password','country','citizenship','place-of-birth',
@@ -33,6 +34,10 @@ class Individual extends Authenticatable implements MustVerifyEmail
         static::addGlobalScope('role', function (Builder $builder) {
             $builder->where('role', 'individual');
         });
+    }
+
+    public function files(){
+        return $this->hasMany(Files::class);
     }
 
 

@@ -63,7 +63,7 @@ class RegisterController extends Controller
 //            'email' => ['required', 'string', 'email', 'max:255'],
 //            'password1' => ['required', 'string', 'min:6',],
         ]);
-        dd(123);
+
 
     }
 
@@ -75,7 +75,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-//        dd($data);
+
         if ($data['accountType'] == 'Individual'){
             return Individual::create([
                 'firstName' => $data['firstName'],

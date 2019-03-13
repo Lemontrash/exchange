@@ -6,10 +6,11 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Builder;
+use Laravel\Passport\HasApiTokens;
 
 class Business extends Authenticatable implements MustVerifyEmail
 {
-    use Notifiable;
+    use HasApiTokens, Notifiable;
     protected $table = 'users';
     protected $fillable = [
         'first-name', 'second-name', 'last-name', 'email','password','country','citizenship','place-of-birth',
@@ -37,6 +38,10 @@ class Business extends Authenticatable implements MustVerifyEmail
 
     public function individuals(){
         return $this->hasMany(BusinessIndividuals::class);
+    }
+
+    public function files(){
+        return $this->hasMany(Files::class);
     }
 
 

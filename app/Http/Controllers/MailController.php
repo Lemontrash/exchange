@@ -12,7 +12,6 @@ class MailController extends Controller
     public function forgotPassword(Request $request){
         $email = $request->get('email');
         if (User::where('email', $email)->first()){
-
             $user = User::where('email', $email)->get();
 //            dd($user);
             Hash::make(now());
