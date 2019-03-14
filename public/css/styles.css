@@ -203,6 +203,27 @@ input[type="number"] {
 	color: grey;
 	text-decoration: underline;
 }
+#register_checkbox{
+	display: none;
+}
+#register_checkbox+label:after{
+	content: ' ';
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	background-color: #1d2232;
+	color: #fff;
+	margin-left: 8px;
+	vertical-align: middle;
+	text-align: center;
+}
+#register_checkbox:checked+label:after{
+	content: '\2713\0020';
+}
+.jc-space-between{
+	display: flex;
+	justify-content: space-between;
+}
 .formBody .agreement {
 	color:#9a9ea9;
 	text-align: center;
