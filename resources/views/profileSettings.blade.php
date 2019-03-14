@@ -2,6 +2,7 @@
     <head>
         <title>Profile</title>
         @include('headAssets')
+        <link href="{{ asset('css/common.css') }}" rel="stylesheet">
         <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
 
     </head>

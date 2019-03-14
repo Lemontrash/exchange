@@ -1,49 +1,5 @@
-* {
-  box-sizing: border-box;
-}
-
-form {
-  margin-bottom: 0;
-  display: block;
-}
-
 body {
   background: #343c53;
-  font-size: 14px;
-}
-
-.theme-btn {
-  border: none;
-  border-radius: 5px;
-  display: inline-flex;
-  align-items: center;
-  text-align: center;
-  height: 45px;
-  padding-right: 28px;
-  padding-left: 28px;
-  cursor: pointer;
-  text-decoration: none;
-}
-
-.theme-btn:hover,
-.theme-btn:focus,
-.theme-btn:active {
-  text-decoration: none;
-}
-
-.btn-pink {
-  color: #FFF;
-  background-image: linear-gradient(140deg, #d85c89 0%, #f02962);
-}
-
-.btn-blue {
-  color: #FFF;
-  background-image: linear-gradient(140deg, #009aff 0%, #007acc);
-}
-
-.theme-row {
-  display: flex;
-  flex-wrap: wrap;
 }
 
 .inp-group {
