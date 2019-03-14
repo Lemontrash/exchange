@@ -30,14 +30,34 @@ $(document).ready(function() {
 
   //registration form ajax
   $('#registration').on('submit',function(e) {
-  	  // e.preventDefault();
+  	  e.preventDefault();
   	  var getFormData = {};
 	$("#registration input").each(function() {
 	    getFormData[$(this).attr("name")] = $(this).val();
 	});
 	var selectedCOuntryCode = $('.country.active .dial-code').text();
 	getFormData['phoneNumber'] = selectedCOuntryCode + getFormData['phoneNumber'];
-	console.log(getFormData); 
+	getFormData['_token'] = $('meta[name="csrf-token"]').attr('content');
+	//getFormData = $('getFormData').serialize();
+	console.log(getFormData);
+	// $.ajaxSetup({
+	//
+	// });
+	//
+	$.ajax({
+		type : 'POST',
+		url : 'api/register',
+		datatype : 'JSON',
+		data : getFormData,
+
+		success : function (response) {
+			console.log('Success');
+
+		},
+		error : function(response) {
+			console.log('Error');
+		}
+	})
   	 
 	});
 

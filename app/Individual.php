@@ -8,7 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Builder;
 use Laravel\Passport\HasApiTokens;
 
-class Individual extends Authenticatable implements MustVerifyEmail
+class Individual extends Authenticatable
 {
     use HasApiTokens, Notifiable;
     protected $table = 'users';
@@ -16,7 +16,7 @@ class Individual extends Authenticatable implements MustVerifyEmail
         'firstName', 'secondName', 'lastName', 'email','password','country','citizenship','place-of-birth',
         'mobile','land-line','address','city','zip','employment','industry','annual-income','savings','source-of-funds','trading-frequency',
         'invest-annually', 'funding-method', 'name-of-bank', 'bank-location', 'credit-card', 'e-wallet', 'country-taxes', 'tax-id',
-        'date-of-birth',
+        'date-of-birth', 'avatar', 'role'
     ];
 
     protected $hidden = [
@@ -38,6 +38,10 @@ class Individual extends Authenticatable implements MustVerifyEmail
 
     public function files(){
         return $this->hasMany(Files::class);
+    }
+
+    public function business(){
+        return $this->belongsTo(Business::class, 'relation_id', 'id');
     }
 
 

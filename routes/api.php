@@ -13,8 +13,13 @@ use Illuminate\Http\Request;
 |
 */
 
+Route::post('logout', function (){
+    \Illuminate\Support\Facades\Auth::logout();
+    return response()->json('aaa', 200);
+});
+
 Route::post('login', 'API\UserController@login');
-Route::post('register', 'API\UserController@register');
+Route::post('register', 'API\UserController@register')->name('register');
 Route::group(['middleware' => 'auth:api'], function(){
     Route::post('details', 'API\UserController@details');
 });
@@ -33,3 +38,4 @@ Route::post('admin/approve', 'AdminController@approve');
 Route::post('admin/disapprove', 'AdminController@disapprove');
 Route::post('admin/delete', 'AdminController@delete');
 Route::post('admin/getPdf', 'AdminController@getPdf');
+//Route::post('admin/', '');

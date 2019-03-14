@@ -19,7 +19,7 @@ Route::get('/logout', function (){
     if (\Illuminate\Support\Facades\Auth::check()){
         \Illuminate\Support\Facades\Auth::logout();
     }
-    return back();
+    return 'done';
 })->name('test');
 Route::get('/password', function (){
     return view('auth.retrieveEmail');
@@ -36,6 +36,10 @@ Route::get('/FilesHistory',function (){
     return view('profileFilesHistory');
 })->name('FilesHistory');
 
+Route::get('/relation',function (){
+    $user = \Illuminate\Support\Facades\DB::table('users')->where('relation_id', '1')->get();
+    return view('relation', ['user' => $user]);
+})->name('FilesHistory');
 
 
 Route::post('/files', 'UserController@store')->name('files');

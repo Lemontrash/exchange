@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use phpseclib\Crypt\Random;
 use Validator;
 class UserController extends Controller
 {
@@ -98,17 +99,19 @@ class UserController extends Controller
 
     public function register(Request $request)
     {
+
         $validator = Validator::make($request->all(), [
             'name' => 'required',
             'email' => 'required|email',
             'password' => 'required',
             'firstName' => 'required',
             'lastName' => 'required',
-            'c_password' => 'required|same:password',
+//            'c_password' => 'required|same:password',
         ]);
         if ($validator->fails()) {
             return response()->json(['error'=>$validator->errors()], 401);
         }
+
         $input = $request->all();
         $input['password'] = bcrypt($input['password']);
 //        dd($input['firstName']);
@@ -119,7 +122,11 @@ class UserController extends Controller
             'mobile' => $input['mobile'],
             'password' => $input['password'],
         ]);
-        $success['token'] =  $user->createToken('MyApp')-> accessToken;
+
+        Auth::login($user);
+        $user->api_token = str_random(32);
+        $user->save();
+        $success['token'] =  $user->api_token;
         return response()->json(['success'=>$success], $this-> successStatus);
     }
 

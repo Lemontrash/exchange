@@ -25,8 +25,12 @@ class AdminController extends Controller
         $path_dod = $file->dod;
 
         Storage::download($path_bank);
-        return Storage::download($path_dod);
-
+        return array(
+            Storage::download($path_id),
+            Storage::download($path_selfie),
+            Storage::download($path_bank),
+            Storage::download($path_dod)
+        );
     }
 
     public function approve($id){
@@ -82,6 +86,8 @@ class AdminController extends Controller
 
     public function showAccountVerifictionFiles(){
         $files = AccountVerificationFiles::all();
+
+
         return view('admin.accountVerificationFiles', ['files' => $files]);
     }
 

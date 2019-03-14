@@ -10,7 +10,7 @@
 <div id="registrationWrapper">
   <h1>Registration</h1>
   <form id="registration" class="formBody" method="POST" action="{{route('register')}}">
-    @csrf
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <div class="inputRow">
       <div class="formInner">
         <label for="accountType">Account</label>

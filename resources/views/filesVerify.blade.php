@@ -10,33 +10,33 @@
 
     <div id="registrationWrapper">
         <h1>Verification <strong>Files</strong></h1>
-        <form enctype="multipart/form-data" id="registration" class="formBody" method="POST" action="{{route('login')}}">
+        <form enctype="multipart/form-data" id="registration" class="formBody" method="POST" action="{{route('files')}}">
             @csrf
             <div class="inputRow">
                 <div class="formInner">
                     <label for="">ID</label>
-                    <input type="file" name="email" placeholder="File" required>
+                    <input type="file" name="id" placeholder="File" required>
                     <i class="fas fa-check-circle"></i>
                 </div>
             </div>
             <div class="inputRow">
                 <div class="formInner">
                     <label for="">Selfie</label>
-                    <input type="file" name="email" placeholder="File" required>
+                    <input type="file" name="selfie" placeholder="File" required>
                     <i class="fas fa-check-circle"></i>
                 </div>
             </div>
             <div class="inputRow">
                 <div class="formInner">
                     <label for="">Bank Transfer</label>
-                    <input type="file" name="email" placeholder="File" required>
+                    <input type="file" name="bank" placeholder="File" required>
                     <i class="fas fa-check-circle"></i>
                 </div>
             </div>
             <div class="inputRow">
                 <div class="formInner">
                     <label for="">DOD</label>
-                    <input type="file" name="email" placeholder="File" required>
+                    <input type="file" name="dod" placeholder="File" required>
                     <i class="fas fa-check-circle"></i>
                 </div>
             </div>

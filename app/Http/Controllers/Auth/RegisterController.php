@@ -67,6 +67,12 @@ class RegisterController extends Controller
 
     }
 
+    protected function registered(Request $request, $user)
+    {
+        $user->generateToken();
+
+        return response()->json(['data' => $user->toArray()], 201);
+    }
     /**
      * Create a new user instance after a valid registration.
      *
@@ -91,10 +97,11 @@ class RegisterController extends Controller
                 'firstName' => $data['firstName'],
                 'lastName' => $data['lastName'],
                 'mobile' => $data['phoneNumber'],
-                'role' => $data['accountType'],
+                'role' => 'business',
                 'email' => $data['email'],
                 'password' => Hash::make($data['password']),
             ]);
+
         }
 
     }
