@@ -83,7 +83,7 @@
                     <div class="text-col">
                         <p class="heading">One Account. Multiple Wallets.</p>
                         <p class="desc">We support multiple wallet types, all under the same account. This makes maintaining and managing your Crypto portfolio easier and simpler.</p>
-                        <button class="theme-btn btn-blue">REGISTER NOW</button>
+                        <a href="#" class="theme-btn btn-blue">REGISTER NOW</a>
                     </div>
                     <div class="screenshot-col">
                         <img src="/img/main-page-screenshot.png" alt="">
@@ -97,7 +97,7 @@
                     <div class="text-col ml-auto">
                         <p class="heading">Super simple to use.</p>
                         <p class="desc">We support multiple wallet types, all under the same account. This makes maintaining and managing your Crypto portfolio easier and simpler.</p>
-                        <button class="theme-btn btn-blue">REGISTER NOW</button>
+                        <a href="#" class="theme-btn btn-blue">REGISTER NOW</a>
                     </div>
                     <div class="screenshot-col">
                         <img src="/img/main-page-screenshot2.png" alt="">
@@ -111,7 +111,7 @@
                     <div class="text-col">
                         <p class="heading">Easy signup.</p>
                         <p class="desc">Manage your Crypto wherever you are. Whenever you need. Take control of your cryptocurrency porfolio with iCrypt’s user friendly exchange. Buy Sell, manage, transfer on the go wherever you are, whenever you need.</p>
-                        <button class="theme-btn btn-blue">REGISTER NOW</button>
+                        <a href="#" class="theme-btn btn-blue">REGISTER NOW</a>
                     </div>
                     <div class="screenshot-col">
                         <img src="/img/main-page-screenshot3.png" alt="">
@@ -120,7 +120,7 @@
                 <div class="theme-row we-love-crypto text-center ml-auto mr-auto">
                     <p class="heading">We love Crypto too.</p>
                     <p class="desc">We are a group of Crypto and technology enthusiasts. We have taken our love of Cryptocurrencies and married it with super simple and easy to use technology, providing you with the easiest way to manage, hold and buy and sell cryptocurrencies in India.</p>
-                    <button class="theme-btn btn-blue">REGISTER NOW</button>
+                    <a href="#" class="theme-btn btn-blue">REGISTER NOW</a>
                 </div>
             </div>
         </div>
