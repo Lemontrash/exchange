@@ -6,16 +6,18 @@ $(document).ready(function() {
 
 
   var phoneNumber = document.querySelector("#phoneNumber");
-  var buildCountrySelector = window.intlTelInput(phoneNumber,{
-  	 initialCountry: "auto",
-	  geoIpLookup: function(success, failure) {
-	    $.get("https://ipinfo.io", function() {}, "jsonp").always(function(resp) {
-	      var countryCode = (resp && resp.country) ? resp.country : "";
-	      success(countryCode);
-	    });
-	  },
-	  separateDialCode : true,
-  });
+  if(phoneNumber) {
+    var buildCountrySelector = window.intlTelInput(phoneNumber,{
+       initialCountry: "auto",
+      geoIpLookup: function(success, failure) {
+        $.get("https://ipinfo.io", function() {}, "jsonp").always(function(resp) {
+          var countryCode = (resp && resp.country) ? resp.country : "";
+          success(countryCode);
+        });
+      },
+      separateDialCode : true,
+    });
+  }
 
     //registration form validation
   $('#registration input').on('change',function(e) {
@@ -40,5 +42,30 @@ $(document).ready(function() {
 	console.log(getFormData); 
   	 
 	});
+
+  //profile settings ajax
+  $('#profile_update_password').on('click', function(e){
+    e.preventDefault();
+    var data = {
+      'current_password' : $('#profile_current_password').val(),
+      'new_password' : $('#profile_new_password').val(),
+      'retype_password' : $('#profile_retype_new_password').val()
+    }
+    if(data.new_password == data.retype_password && data.new_password !== ''){
+      $.ajax({
+        url: '/api/passwordChange',
+        data: JSON.stringify(data),
+        contentType: false,
+        processData: false,
+        method: 'POST',
+        success: function (data) {
+          console.log(data);
+        }
+      });
+    }
+    else{
+      alert('Passwords do not match');
+    }
+  });
 
 });

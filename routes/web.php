@@ -18,6 +18,13 @@ Route::get('/', function () {
 Route::get('/profile', function () {
     return view('profileSettings');
 });
+Route::get('/uploadFiles', function () {
+    return view('uploadFiles',
+        [
+            'ajaxUrl' => '/api/verificate-files'
+        ]
+    );
+});
 Route::get('/profile/files-history', function () {
     return view('profileFilesHistory');
 });

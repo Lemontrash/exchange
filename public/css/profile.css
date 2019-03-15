@@ -2,61 +2,6 @@ body {
   background: #343c53;
 }
 
-.inp-group {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-}
-
-.inp-group .multiple-inputs {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.inp-group .inp-caption {
-  font-weight: 500;
-  color: #fff;
-}
-
-.inp-group .inp-wrap {
-  position: relative;
-  margin-top: 12px;
-}
-
-.inp-group .inp-wrap .fas {
-  color: rgba(255, 255, 255, 0.5);
-  font-size: 20px;
-  position: absolute;
-  top: 16px;
-  right: 5px;
-}
-
-.inp-group .inp-wrap input {
-  background: transparent;
-  border: none;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-  width: 250px;
-  padding: 16px 10px;
-  color: #fff;
-  outline: none;
-}
-
-.inp-group .inp-wrap input::-webkit-input-placeholder {
-  color: rgba(255, 255, 255, 0.5);
-}
-
-.inp-group .inp-wrap input:-ms-input-placeholder {
-  color: rgba(255, 255, 255, 0.5);
-}
-
-.inp-group .inp-wrap input::-ms-input-placeholder {
-  color: rgba(255, 255, 255, 0.5);
-}
-
-.inp-group .inp-wrap input::placeholder {
-  color: rgba(255, 255, 255, 0.5);
-}
-
 .theme-nice-select {
   height: 50px;
   padding-left: 20px;
@@ -239,6 +184,7 @@ body {
 
 .profile-settings-form .theme-nice-select {
   margin-right: 20px;
+  color: #fff;
 }
 
 .profile-settings-form .avatar-preview {
