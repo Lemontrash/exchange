@@ -50,17 +50,23 @@ input[type="number"] {
 	color:#fff;
 	font-size:18px;
 }
-#registrationWrapper {
-	padding:36px;
+#registrationWrapper,
+#formpageWrapper {
+	padding: 36px 45px;
 	background-color: rgba(52,60,83,0.5);
 	color:#fff;
 	border-radius: 10px;
 }
+#formPageWrapper h1,
 #registrationWrapper h1 {
 	text-align: center;
 	text-transform: uppercase;
 	font-weight: 500;
 	font-size: 1.4em;
+	letter-spacing: 1.3px
+}
+#formpageWrapper .theme-btn{
+	font-weight: 700;	
 }
 .formBody .inputRow{
 	display: flex;
@@ -150,11 +156,11 @@ input[type="number"] {
 	margin-top:24px;
 	position: relative;
 }
-.formBody button {
+#registrationWrapper button {
 	text-transform: uppercase;
-	margin:36px 24px;
+	margin: 36px 24px;
 	border-width: 0;
-    background: linear-gradient(to right, rgba(0,154,255,1) 0%,rgba(0,123,204,1) 100%);
+  background: linear-gradient(to right, rgba(0,154,255,1) 0%,rgba(0,123,204,1) 100%);
 	display: block;
 	padding:14px 0;
 	width:calc(100% - 48px);
@@ -202,6 +208,34 @@ input[type="number"] {
 	font-weight: 400;
 	color: grey;
 	text-decoration: underline;
+}
+#register_checkbox{
+	display: none;
+}
+#register_checkbox+label{
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+}
+#register_checkbox+label:after{
+	content: ' ';
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	background-color: #1d2232;
+	color: #fff;
+	margin-left: 8px;
+	vertical-align: middle;
+	text-align: center;
+}
+#register_checkbox:checked+label:after{
+	content: '\2713\0020';
+}
+.jc-space-between{
+	display: flex;
+	justify-content: space-between;
 }
 .formBody .agreement {
 	color:#9a9ea9;

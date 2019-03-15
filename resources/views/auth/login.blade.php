@@ -26,9 +26,13 @@
                     <i class="fas fa-check-circle"></i>
                 </div>
             </div>
-            <input type="checkbox" class="checkbox" id="checkbox" />
-            <label for="checkbox">Я переключаю чекбокс</label>
-            <a href="{{route('password.request')}}" class="forgot">Forgot password?</a></p>
+            <div class="inputRow">
+                <div class="formInner jc-space-between">
+                    <input type="checkbox" class="checkbox" id="register_checkbox" />
+                    <label for="register_checkbox">Keep me logged in</label>
+                    <a href="{{route('password.request')}}" class="forgot">Forgot password?</a>
+                </div>
+            </div>
             <button name="submit" type="submit">Sign In</button>
             <a href="{{route('register')}}" class="register">Don`t have an account?</a>
         </form>
