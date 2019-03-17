@@ -2,5 +2,6 @@
     "/js/app.js": "/js/app.js",
     "/css/profile.css": "/css/profile.css",
     "/css/main-page.css": "/css/main-page.css",
+    "/css/upload-files.css": "/css/upload-files.css",
     "/css/common.css": "/css/common.css"
 }
