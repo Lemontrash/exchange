@@ -32,7 +32,7 @@ $(document).ready(function() {
 
   //registration form ajax
   $('#registration').on('submit',function(e) {
-  	  e.preventDefault();
+  	  // e.preventDefault();
   	  var getFormData = {};
 	$("#registration input").each(function() {
 	    getFormData[$(this).attr("name")] = $(this).val();
@@ -65,7 +65,7 @@ $(document).ready(function() {
 
   //profile settings ajax
   $('#profile_update_password').on('click', function(e){
-    e.preventDefault();
+    // e.preventDefault();
     var data = {
       'current_password' : $('#profile_current_password').val(),
       'new_password' : $('#profile_new_password').val(),

@@ -31,7 +31,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -48,7 +48,7 @@ class LoginController extends Controller
     {
 
         if (Auth::attempt(['email' => $request->get('email'), 'password' => $request->get('password')])){
-            return redirect('/home');
+            return redirect('/');
         }
         else
             return back();

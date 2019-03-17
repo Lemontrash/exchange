@@ -59,7 +59,7 @@ class PdfController extends Controller
         $userId = Auth::id();
 
         $file = Files::create([
-            'userId'            => 1,
+            'user_id'            => 1,
 //            'firstName'         => Auth::user()->firstName,
 //            'secondName'        => $secondname,
 //            'lastName'          => Auth::user()->lastName,
@@ -88,6 +88,30 @@ class PdfController extends Controller
 //
 //        return $pdf->stream();
 
+    }
+
+    public function getPdfFromProfile($id){
+        $file = Files::where('id', $id)->first();
+        $data = [
+            'country'           => $file->countrytname,
+            'citizenship'       => $file->cityzenship,
+            'placeOfBirth'      => $file->plasceofbirth,
+            'address'           => $file->address,
+            'landLine'          => $file->landLine,
+            'city'              => $file->city,
+            'zip'               => $file->zip,
+            'employment'        => $file->employment,
+            'industry'          => $file->industry,
+            'annualIncome'      => $file->annualIncome,
+            'savings'           => $file->savings,
+            'sourceOfFunds'     => $file->sourceOfFunds,
+            'investAnnually'    => $file->investAnnually,
+            'nameOfBank'        => $file->nameOfBank,
+            'taxId'             => $file->TAX,
+            'countryTaxes'      => $file->TAXCountry,
+        ];
+        $pdf = Facade::loadView('pdfmaked', $data);
+        return $pdf->stream();
     }
 
     public function show(){

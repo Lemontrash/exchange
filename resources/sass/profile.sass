@@ -159,7 +159,7 @@ body
 			&.active
 				font-weight: bold
 
-.profile-settings-form
+.profile-form
 	.theme-row
 		margin-bottom: 40px
 	.avatar-inp-group
@@ -196,6 +196,23 @@ body
 			padding-right: 35px
 			padding-left: 35px
 			height: 38px
+
+	.textarea-inp-group
+		textarea
+			width: 535px
+			appearance: none
+			resize: none
+			background: transparent
+			height: 130px
+			border: none
+			border-bottom: 2px solid rgba(255,255,255,.5)
+			outline: none
+			padding: 16px 10px
+			color: #fff
+			&::placeholder
+				color: rgba(255,255,255,.5)
+			&:focus
+				border-color: #009aff
 
 #profile_update_password
 	text-transform: uppercase

@@ -9,7 +9,8 @@
 @section('content')
 <div id="registrationWrapper">
   <h1>Registration</h1>
-  <form id="registration" class="formBody" method="POST">
+  <form id="registration" class="formBody" method="POST" action="{{route('register')}}">
+      @csrf
     <div class="inputRow">
       <div class="formInner">
         <label for="accountType">Account</label>

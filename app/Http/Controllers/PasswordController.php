@@ -10,9 +10,10 @@ use Illuminate\Support\Facades\Hash;
 class PasswordController extends Controller
 {
     public function changePassword(Request $request){
-        $user = User::find(1);
-        $currentPassword = $request->get('password');
+        $user = User::find(Auth::id());
+        $currentPassword = $request->get('current_password');
         $newPassword = $request->get('new_password');
+//        dd($currentPassword);
         if(Hash::check($currentPassword, $user->password)){
             $user->password = Hash::make($newPassword);
             $user->save();

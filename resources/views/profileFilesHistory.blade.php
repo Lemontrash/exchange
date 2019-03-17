@@ -11,7 +11,9 @@
       
       <header id="profile_header">
         <div class="logo-wrap">
-          <img src="/img/logo.png" alt="">
+            <a href="{{route('home')}}">
+                <img src="/img/logo.png" alt="">
+            </a>
         </div>
 
         <div class="header-search-wrapper">
@@ -43,32 +45,41 @@
       </header>
 
       <aside class="profile-nav">
-        <ul class="links-container">
-          <li class="link-item">
-            <i class="fas fa-check-circle"></i>
-            Exchange
-          </li>
-          <li class="link-item">
-            <i class="fas fa-exchange"></i>
-            Currancy Rate
-          </li>
-          <li class="link-item">
-            <i class="fas fa-chart-bar"></i>
-            Transition
-          </li>
-          <li class="link-item">
-            <i class="fas fa-envelope"></i>
-            Contact
-          </li>
-          <li class="link-item">
-            <i class="fas fa-question"></i>
-            FAQ
-          </li>
-          <li class="link-item">
-            <i class="fas fa-cog"></i>
-            Settings
-          </li>
-        </ul>
+          <ul class="links-container">
+              <li class="link-item">
+                  <i class="fas fa-check-circle"></i>
+                  <a style="text-decoration: none; color: rgba(255, 255, 255, 0.5);" href="{{route('home')}}">Exchange</a>
+
+              </li>
+              <li class="link-item">
+                  <i class="fas fa-exchange"></i>
+                  <a style="text-decoration: none; color: rgba(255, 255, 255, 0.5);" href="{{route('home')}}">Currancy Rate</a>
+
+              </li>
+              <li class="link-item">
+                  <i class="fas fa-chart-bar"></i>
+                  <a style="text-decoration: none; color: rgba(255, 255, 255, 0.5);" href="{{route('filesHistory')}}"> Transition</a>
+
+              </li>
+              <li class="link-item">
+                  <i class="fas fa-envelope"></i>
+                  <a style="text-decoration: none; color: rgba(255, 255, 255, 0.5);" href="{{route('contactUs')}}">Contact</a>
+
+              </li>
+              <li class="link-item">
+                  <i class="fas fa-question"></i>
+                  <a style="text-decoration: none; color: rgba(255, 255, 255, 0.5);" href="{{route('faq')}}">FAQ</a>
+
+              </li>
+              <li class="link-item">
+                  <i class="fas fa-cog"></i>
+                  <a style="text-decoration: none; color: rgba(255, 255, 255, 0.5);" href="{{route('profileSettings')}}">Settings</a>
+              </li>
+              <li class="link-item">
+                  <i class="fas fa-cog"></i>
+                  <a style="text-decoration: none; color: rgba(255, 255, 255, 0.5);" href="{{route('home')}}">Admin</a>
+              </li>
+          </ul>
       </aside>
 
       <div class="profile-content">
@@ -88,41 +99,54 @@
                   <th>Date Issued</th>
                   <th>Phone</th>
                   <th class="text-center">Download PDF</th>
-                  <th class="text-center">Aproved</th>
+                  <th class="text-center">Approved</th>
                   <th class="text-center">Amount</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <th>Member One</th>
-                  <th>02 / 02 /2019</th>
-                  <th>+380557744876</th>
-                  <th class="text-center">
-                    <a href="#" class="theme-btn btn-blue">Download</a>
-                  </th>
-                  <th class="text-center">-</th>
-                  <th class="text-center">50$</th>
-                </tr>
-                <tr>
-                  <th>Member One</th>
-                  <th>02 / 02 /2019</th>
-                  <th>+380557744876</th>
-                  <th class="text-center">
-                    <a href="#" class="theme-btn btn-blue">Download</a>
-                  </th>
-                  <th class="text-center">No</th>
-                  <th class="text-center">50$</th>
-                </tr>
-                <tr class="amount-col">
-                  <th>Member One</th>
-                  <th>02 / 02 /2019</th>
-                  <th>+380557744876</th>
-                  <th class="text-center">
-                    <a href="#" class="theme-btn btn-blue">Download</a>
-                  </th>
-                  <th class="text-center">Yes</th>
-                  <th class="text-center">50$</th>
-                </tr>
+              @foreach($files as $file)
+                  <tr>
+                      <th>{{\App\User::where('id', $file->user_id)->first()->firstName.' '.\App\User::where('id', $file->user_id)->first()->lastName}}</th>
+                      <th>{{$file->created_at}}</th>
+                      <th>{{\App\User::where('id', $file->user_id)->first()->mobile}}</th>
+                      @if($file->approved == 'yes')
+                          <th class="text-center">
+                              <a href="/getPdfFromProfile/{{$file->id}}" class="theme-btn btn-blue">Download</a>
+                          </th>
+                          @elseif($file->approved == '-')
+                          <th class="text-center">
+                              Please Wait
+                          </th>
+                          @else
+                          <th class="text-center">
+                              Your file was not approved :(
+                          </th>
+                      @endif
+                      <th class="text-center">{{$file->approved}}</th>
+                      <th class="text-center">50$</th>
+                  </tr>
+              @endforeach
+
+                {{--<tr>--}}
+                  {{--<th>Member One</th>--}}
+                  {{--<th>02 / 02 /2019</th>--}}
+                  {{--<th>+380557744876</th>--}}
+                  {{--<th class="text-center">--}}
+                    {{--<a href="#" class="theme-btn btn-blue">Download</a>--}}
+                  {{--</th>--}}
+                  {{--<th class="text-center">No</th>--}}
+                  {{--<th class="text-center">50$</th>--}}
+                {{--</tr>--}}
+                {{--<tr class="amount-col">--}}
+                  {{--<th>Member One</th>--}}
+                  {{--<th>02 / 02 /2019</th>--}}
+                  {{--<th>+380557744876</th>--}}
+                  {{--<th class="text-center">--}}
+                    {{--<a href="#" class="theme-btn btn-blue">Download</a>--}}
+                  {{--</th>--}}
+                  {{--<th class="text-center">Yes</th>--}}
+                  {{--<th class="text-center">50$</th>--}}
+                {{--</tr>--}}
               </tbody>
             </table>
           </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Business;
+use App\Files;
 use App\Individual;
 //use App\User;
 use App\Http\Controllers\Controller;
@@ -67,12 +68,6 @@ class RegisterController extends Controller
 
     }
 
-    protected function registered(Request $request, $user)
-    {
-        $user->generateToken();
-
-        return response()->json(['data' => $user->toArray()], 201);
-    }
     /**
      * Create a new user instance after a valid registration.
      *
@@ -83,7 +78,7 @@ class RegisterController extends Controller
     {
 
         if ($data['accountType'] == 'Individual'){
-            return Individual::create([
+            $user = Individual::create([
                 'firstName' => $data['firstName'],
                 'lastName' => $data['lastName'],
                 'mobile' => $data['phoneNumber'],
@@ -93,7 +88,7 @@ class RegisterController extends Controller
             ]);
         }
         if ($data['accountType'] == 'Business'){
-            return Business::create([
+            $user =  Business::create([
                 'firstName' => $data['firstName'],
                 'lastName' => $data['lastName'],
                 'mobile' => $data['phoneNumber'],
@@ -103,6 +98,32 @@ class RegisterController extends Controller
             ]);
 
         }
+
+        $file = Files::create([
+            'user_id'            => $user->id,
+//            'firstName'         => Auth::user()->firstName,
+//            'secondName'        => $secondname,
+//            'lastName'          => Auth::user()->lastName,
+            'country'           => 'country',
+            'citizenship'       => 'citizenship' ,
+            'placeOfBirth'      => 'placeOfBirth',
+            'address'           => 'address'  ,
+            'landLine'          => 'landLine' ,
+            'city'              => 'city' ,
+            'zip'               => 'zip',
+            'employment'        => 'employment',
+            'industry'          => 'industry'  ,
+            'annualIncome'      => 'annualIncome',
+            'savings'           => 'savings' ,
+            'sourceOfFunds'     => 'sourceOfFunds',
+            'investAnnually'    => 'investAnnually',
+            'nameOfBank'        => 'nameOfBank',
+            'taxId'             => 'taxId',
+            'countryTaxes'      => 'countryTaxes',
+            'approved'          => 'yes'
+        ]);
+        dd($file);
+        return $user;
 
     }
 }

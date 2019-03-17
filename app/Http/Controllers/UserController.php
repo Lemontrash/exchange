@@ -47,4 +47,29 @@ class UserController extends Controller
         return response()->json($file, 200);
     }
 
+    public function changePersonalInfo(Request $request){
+        $email = $request->get('email');
+        $firstName = $request->get('first_name');
+        $lastName = $request->get('last_name');
+        $month = $request->get('month');
+        $date = $request->get('date');
+        $year = $request->get('year');
+        $country = $request->get('country');
+        $city = $request->get('city');
+
+        $fullDate = $date.'-'.$month.'-'.$year;
+        $fullDate = \DateTime::createFromFormat('d-M-Y', $fullDate);
+//        dd($fullDate);
+        $user = User::where('id', Auth::id())->first();
+        $user->email = $email;
+        $user->firstName = $firstName;
+        $user->lastName = $lastName;
+        $user->dateOfBirth = $fullDate;
+        $user->country = $country;
+        $user->city = $city;
+//        dd($user);
+        $user->save();
+        return back();
+    }
+
 }
