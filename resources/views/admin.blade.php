@@ -7,6 +7,12 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link href="{{ asset('css/common.css') }}" rel="stylesheet">
   <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
+<<<<<<< HEAD
+=======
+  <link href="/css/admin.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,700i,900&amp;subset=cyrillic,hebrew" rel="stylesheet">
+>>>>>>> ec688829669d447d6bcbdd6f2ee4c1f74236ea9e
   <title>Admin panel</title>
 </head>
 <body>

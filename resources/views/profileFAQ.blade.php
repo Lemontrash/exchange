@@ -47,27 +47,36 @@
         <ul class="links-container">
           <li class="link-item">
             <i class="fas fa-check-circle"></i>
-            Exchange
+            <a style="text-decoration: none; color: rgba(255, 255, 255, 0.5);" href="{{route('home')}}">Exchange</a>
+
           </li>
           <li class="link-item">
             <i class="fas fa-exchange"></i>
-            Currancy Rate
+            <a style="text-decoration: none; color: rgba(255, 255, 255, 0.5);" href="{{route('home')}}">Currancy Rate</a>
+
           </li>
           <li class="link-item">
             <i class="fas fa-chart-bar"></i>
-            Transition
+            <a style="text-decoration: none; color: rgba(255, 255, 255, 0.5);" href="{{route('filesHistory')}}"> Transition</a>
+
           </li>
           <li class="link-item">
             <i class="fas fa-envelope"></i>
-            Contact
+            <a style="text-decoration: none; color: rgba(255, 255, 255, 0.5);" href="{{route('contactUs')}}">Contact</a>
+
           </li>
           <li class="link-item">
             <i class="fas fa-question"></i>
-            FAQ
+            <a style="text-decoration: none; color: rgba(255, 255, 255, 0.5);" href="{{route('faq')}}">FAQ</a>
+
           </li>
           <li class="link-item">
             <i class="fas fa-cog"></i>
-            Settings
+            <a style="text-decoration: none; color: rgba(255, 255, 255, 0.5);" href="{{route('profileSettings')}}">Settings</a>
+          </li>
+          <li class="link-item">
+            <i class="fas fa-cog"></i>
+            <a style="text-decoration: none; color: rgba(255, 255, 255, 0.5);" href="{{route('home')}}">Admin</a>
           </li>
         </ul>
       </aside>

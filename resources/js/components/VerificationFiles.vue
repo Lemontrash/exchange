@@ -1,5 +1,5 @@
 <template>
-    <form id="upload_files" class="formBody" method="POST" action="/uploadFiles" enctype="multipart/form-data">
+    <form id="upload_files" class="formBody" method="POST" action="/store" enctype="multipart/form-data">
         <input type="hidden" name="_token" :value="csrf">
 
 
