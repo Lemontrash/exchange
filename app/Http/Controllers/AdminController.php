@@ -6,6 +6,7 @@ use App\AccountVerificationFiles;
 use App\Files;
 use App\Messages;
 use App\User;
+use FontLib\EOT\File;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade;
 use Illuminate\Support\Facades\Storage;
@@ -36,10 +37,10 @@ class AdminController extends Controller
     public function getUsersWithFiles(){
         $files = AccountVerificationFiles::all();
         foreach ($files as $file) {
-            $user = User::where('id', $file->user_id)->get();
+            $user = User::where('id', $file->user_id)->first();
+//            $files[] = AccountVerificationFiles::where('')
             $collection[] = $user;
         }
-
         return response()->json($collection);
     }
 
