@@ -33,24 +33,37 @@ class AdminController extends Controller
         );
     }
 
-    public function approve($id){
+    public function getUsersWithFiles(){
+        $files = AccountVerificationFiles::all();
+//        dd($files);
+//        $users = User::all();
+        foreach ($files as $file) {
+//            dd($file->user_id);
+            $user = User::where('id', $file->user_id)->get();
+//            dd($user);
+            $collection[] = $user;
+        }
+        return response()->json($collection);
+    }
+
+    public function approvePdf($id){
         $file = Files::find($id);
         $file->approved = 'yes';
         $file->save();
         return back();
     }
-    public function disapprove ($id){
+    public function dismissPdf ($id){
         $file = Files::find($id);
         $file->approved = 'no';
         $file->save();
         return back();
     }
-    public function delete ($id){
+    public function deletePdf ($id){
         $file = Files::find($id);
         $file->delete();
         return back();
     }
-    public function getPdf($id){
+    public function downloadPdf($id){
         $file = Files::find($id);
         $data = [
             'country'           => $file->country,
@@ -86,8 +99,6 @@ class AdminController extends Controller
 
     public function showAccountVerifictionFiles(){
         $files = AccountVerificationFiles::all();
-
-
         return view('admin.accountVerificationFiles', ['files' => $files]);
     }
 
