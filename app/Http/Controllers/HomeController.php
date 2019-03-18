@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Files;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -44,10 +45,20 @@ class HomeController extends Controller
         return view('profileFaq');
     }
     public function showFilesHistory(){
-//        dd(Auth::id());
-        $files = Files::where('user_id', Auth::id())->get();
-//        dd($files);
+        if (User::find(Auth::id())->role == 'individual'){
+            $files = Files::where('user_id', Auth::id())->get();
+        }
+        elseif (User::find(Auth::id())->role == 'business'){
+            $individuals = User::where('relation_id', Auth::id())->get();
+            $files[] = Files::where('user_id', Auth::id())->get();
+            foreach ($individuals as $user){
+                $files[] = Files::where('user_id', $user->id);
+            }
+        }
+        dd($files);
         return view('profileFilesHistory', ['files' => $files]);
+
+
     }
 
     public function logout(){

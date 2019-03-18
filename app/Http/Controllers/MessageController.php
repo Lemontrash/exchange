@@ -15,12 +15,12 @@ class MessageController extends Controller
 //        dd($request);
         $message = Messages::create([
             'email'     => $request->get('email'),
-            'name'      => $request->get('name'),
+            'name'      => $request->get('full_name'),
             'title'     => $request->get('title'),
             'phone'     => $request->get('phone'),
             'message'   => $request->get('message'),
         ]);
-        return response()->json($message);
+        return back();
     }
 
 

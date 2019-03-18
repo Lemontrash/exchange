@@ -20,8 +20,9 @@ Route::get('/profile',      'HomeController@showProfileSettings')       ->name('
 Route::get('/faq',          'HomeController@showFaq')                   ->name('faq');
 Route::get('/filesHistory', 'HomeController@showFilesHistory')          ->name('filesHistory');
 Route::get('/password',     'HomeController@showPasswordResetViaEmail') ->name('forgotPassword');
-Route::get('/contactUs',     'HomeController@showContactUsForm')        ->name('contactUs');
+Route::get('/contactUs',    'HomeController@showContactUsForm')         ->name('contactUs');
 Route::get('/logout',       'HomeController@logout')                    ->name('logout');
+Route::post('/contactUs',   'MessageController@send')                   ->name('sendMessage');
 
 Route::get('/getPdfFromProfile/{id}',       'PdfController@getPdfFromProfile')         ->name('getPdfFromProfile');
 
