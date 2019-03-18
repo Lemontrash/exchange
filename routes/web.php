@@ -4,7 +4,7 @@ Auth::routes();
 
 
 
-Route::get('/admin', 'AdminController@getUsersWithFiles');
+Route::get('/admin/new-users', 'AdminController@getUsersWithFiles');
 //Basic Routes For Profile
 Route::get('/',             'HomeController@showHome')                  ->name('home');
 Route::get('/profile',      'HomeController@showProfileSettings')       ->name('profileSettings');

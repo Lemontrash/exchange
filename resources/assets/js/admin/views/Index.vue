@@ -29,6 +29,16 @@
 
 <script>
 export default {
+  methods: {
+    sync() {
+      axios.get('/admin/new-users').then(res => {
+        console.log(res.data);
+      })
+    }
+  },
+  created() {
+    this.sync();
+  }
 }
 </script>
 
