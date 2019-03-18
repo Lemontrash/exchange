@@ -1,17 +1,17 @@
 <template>
   <aside class="profile-nav">
     <ul class="links-container">
-      <li class="link-item">
-        <a href="">
+      <li class="link-item" :class="{ selected: $route.name == 'index' }">
+        <router-link to="/">
           <i class="fa fa-check-circle"></i>
           <span>New Users</span>
-        </a>
+        </router-link>
       </li>
-      <li class="link-item">
-        <a href="">
+      <li class="link-item" :class="{ selected: $route.name == 'accepted' }">
+        <router-link to="/accepted">
           <i class="fa fa-check-circle"></i>
           <span>Accepted Users</span>
-        </a>
+        </router-link>
       </li>
     </ul>
   </aside>
@@ -33,6 +33,16 @@ aside {
     font-size: 14px;
     vertical-align: middle;
     padding: 0;
+    &.selected {
+      color: #fff;
+      background-color: #343c53;
+      box-shadow: -13px 7.5px 20px 0 rgba(24, 28, 38, 0.4);
+      span {
+        color: #fff;
+        font-size: 16px;
+        font-weight: bold;
+      }
+    }
     a {
       display: flex;
       width: 100%;

@@ -19,8 +19,11 @@
           <th>02 / 02 /2019</th>
           <th>+380557744876</th>
           <th>Johnsnow14@gmail.com</th>
-          <th class="text-center"><i class="fas fa-check-circle"></i></th>
+          <th class="text-center"><i class="fa fa-check-circle"></i></th>
           <th class="text-center">Individual</th>
+        </tr>
+        <tr>
+          <td colspan="6">qweqweqweqweqweqwe</td>
         </tr>
       </tbody>
     </table>

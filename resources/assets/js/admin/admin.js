@@ -1,6 +1,8 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
+Vue.use(VueRouter);
+
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -8,11 +10,12 @@ import VueRouter from 'vue-router';
  */
 
 import Index from './views/Index.vue';
+import Accepted from './views/Accepted.vue';
 
 const router = new VueRouter({
   routes: [
-    { path: '/', component: Index },
-    { path: '/foo', component: Index }
+    { path: '/', name: 'index', component: Index },
+    { path: '/accepted', name: 'accepted', component: Accepted }
   ]
 });
 
