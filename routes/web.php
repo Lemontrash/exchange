@@ -12,7 +12,7 @@ Route::get('/faq',          'HomeController@showFaq')                   ->name('
 Route::get('/filesHistory', 'HomeController@showFilesHistory')          ->name('filesHistory');
 Route::get('/password',     'HomeController@showPasswordResetViaEmail') ->name('forgotPassword');
 Route::get('/contactUs',    'HomeController@showContactUsForm')         ->name('contactUs');
-Route::get('/uploadFiles',  'HomeController@showUploadFiles')           ->name('contactUs');
+Route::get('/uploadFiles',  'HomeController@showUploadFiles')           ;
 Route::get('/logout',       'HomeController@logout')                    ->name('logout');
 Route::post('/contactUs',   'MessageController@send')                   ->name('sendMessage');
 
@@ -43,18 +43,18 @@ Route::post('/changePersonalInfo','UserController@changePersonalInfo')->name('ch
 
 
 //Admin Routes
-Route::post('/approveId/{id}',      'AdminController@changePassword')->name('approveId');
-Route::post('/approveSelfie/{id}',  'AdminController@changePassword')->name('approveSelfie');
-Route::post('/approveBank/{id}',    'AdminController@changePassword')->name('approveBank');
-Route::post('/approveDod/{id}',     'AdminController@changePassword')->name('approveDod');
-Route::post('/dismissId/{id}',      'AdminController@changePassword')->name('dismissId');
-Route::post('/dismissSelfie/{id}',  'AdminController@changePassword')->name('dismissSelfie');
-Route::post('/dismissBank/{id}',    'AdminController@changePassword')->name('dismissBank');
-Route::post('/dismissDod/{id}',     'AdminController@changePassword')->name('dismissDod');
-
-
-//?????????????????????????????????????????????
-Route::post('/downloadPdf/{id}',    'PasswordController@changePassword')->name('changePassword');
+//Route::post('/approveId/{id}',      'AdminController@changePassword')->name('approveId');
+//Route::post('/approveSelfie/{id}',  'AdminController@changePassword')->name('approveSelfie');
+//Route::post('/approveBank/{id}',    'AdminController@changePassword')->name('approveBank');
+//Route::post('/approveDod/{id}',     'AdminController@changePassword')->name('approveDod');
+//Route::post('/dismissId/{id}',      'AdminController@changePassword')->name('dismissId');
+//Route::post('/dismissSelfie/{id}',  'AdminController@changePassword')->name('dismissSelfie');
+//Route::post('/dismissBank/{id}',    'AdminController@changePassword')->name('dismissBank');
+//Route::post('/dismissDod/{id}',     'AdminController@changePassword')->name('dismissDod');
+//
+//
+////?????????????????????????????????????????????
+//Route::post('/downloadPdf/{id}',    'PasswordController@changePassword')->name('changePassword');
 
 
 

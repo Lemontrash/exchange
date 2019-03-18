@@ -1,15 +1,15 @@
 <template>
-    <form id="upload_files" class="formBody" method="POST" action="/store" enctype="multipart/form-data">
+    <form id="upload_files" class="formBody" method="POST" action="/uploadFiles" enctype="multipart/form-data">
         <input type="hidden" name="_token" :value="csrf">
 
 
         <div class="theme-row" v-for="fileInput in fileInputs">
             <div class="inp-group text-inp-group">
-                <label for="" class="inp-caption">{{fileInput.caption}}</label>
-                <div class="inp-wrap">
-                    <input type="text" :name="fileInput.name+'_name'" id="" placeholder="File" v-model="fileInput.fileName" required>
-                    <i class="fas fa-check-circle"></i>
-                </div>
+              <label for="" class="inp-caption">{{fileInput.caption}}</label>
+              <div class="inp-wrap">
+                <input type="text" :name="fileInput.name+'_name'" id="" placeholder="File" v-model="fileInput.fileName" required>
+                <i class="fas fa-check-circle"></i>
+              </div>
             </div>
             <label class="theme-btn upload-btn">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
@@ -20,7 +20,7 @@
             </label>
         </div>
 
-
+        
 
         <div class="theme-row all-file-upload drop-area">
             <input type="file" accept="image/*" multiple>
@@ -42,7 +42,6 @@
 <script>
     export default {
         props: [
-            'ajaxurl'
         ],
         data: () => ({
             csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
@@ -71,9 +70,9 @@
                     data: formData,
                     config: { headers: {'Content-Type': 'multipart/form-data' }}
                 })
-                    .then(function(resposnse){
-                        console.log(response);
-                    });
+                .then(function(resposnse){
+                    console.log(response);
+                });
             }
         },
         mounted() {
