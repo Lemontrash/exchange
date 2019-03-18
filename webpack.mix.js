@@ -16,3 +16,7 @@ mix.js('resources/js/app.js', 'public/js')
    .sass('resources/sass/main-page.sass', 'public/css')
    .sass('resources/sass/upload-files.sass', 'public/css')
    .sass('resources/sass/common.sass', 'public/css');
+
+mix
+.js('resources/assets/js/admin/admin.js', 'public/js')
+.sass('resources/assets/scss/admin/admin.scss', 'public/css')

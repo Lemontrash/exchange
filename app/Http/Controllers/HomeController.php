@@ -55,7 +55,7 @@ class HomeController extends Controller
                 $files[] = Files::where('user_id', $user->id);
             }
         }
-        dd($files);
+        
         return view('profileFilesHistory', ['files' => $files]);
 
 

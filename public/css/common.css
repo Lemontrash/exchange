@@ -1,135 +1,136 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 form {
-    margin-bottom: 0;
-    display: block;
+  margin-bottom: 0;
+  display: block;
 }
 
 body {
-    font-size: 14px;
+  font-size: 14px;
 }
 
 .theme-btn {
-    border: none;
-    border-radius: 5px;
-    display: inline-flex;
-    align-items: center;
-    text-align: center;
-    height: 45px;
-    padding-right: 28px;
-    padding-left: 28px;
-    cursor: pointer;
-    text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  display: inline-flex;
+  align-items: center;
+  text-align: center;
+  height: 45px;
+  padding-right: 28px;
+  padding-left: 28px;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 .theme-btn:hover,
 .theme-btn:focus,
 .theme-btn:active {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .btn-pink {
-    color: #FFF;
-    background-image: linear-gradient(140deg, #d85c89 0%, #f02962);
+  color: #FFF;
+  background-image: linear-gradient(140deg, #d85c89 0%, #f02962);
 }
 
 .btn-blue {
-    color: #FFF;
-    background-image: linear-gradient(140deg, #009aff 0%, #007acc);
+  color: #FFF;
+  background-image: linear-gradient(140deg, #009aff 0%, #007acc);
 }
 
 .theme-row {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .ml-auto {
-    margin-left: auto;
+  margin-left: auto;
 }
 
 .mr-auto {
-    margin-right: auto;
+  margin-right: auto;
 }
 
 .jc-center {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .text-center {
-    text-align: center;
+  text-align: center;
 }
 
 .ttu {
-    text-transform: uppercase;
+  text-transform: uppercase;
 }
 
 .w-100 {
-    width: 100%;
+  width: 100%;
 }
 
 .inp-group {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 .inp-group .multiple-inputs {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .inp-group .inp-caption {
-    font-weight: 500;
-    color: #fff;
+  font-weight: 500;
+  color: #fff;
 }
 
 .inp-group .inp-wrap {
-    position: relative;
-    margin-top: 12px;
+  position: relative;
+  margin-top: 12px;
 }
 
 .inp-group .inp-wrap .fas {
-    color: rgba(255, 255, 255, 0.5);
-    font-size: 20px;
-    position: absolute;
-    top: 16px;
-    right: 5px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 20px;
+  position: absolute;
+  top: 16px;
+  right: 5px;
 }
 
 .inp-group .inp-wrap input {
-    background: transparent;
-    border: none;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.5);
-    width: 250px;
-    padding: 16px 10px;
-    color: #fff;
-    outline: none;
-    transition: border-color 0.25s ease-in-out;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+  width: 250px;
+  padding: 16px 10px;
+  color: #fff;
+  outline: none;
+  transition: border-color 0.25s ease-in-out;
 }
 
 .inp-group .inp-wrap input::-webkit-input-placeholder {
-    color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .inp-group .inp-wrap input:-ms-input-placeholder {
-    color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .inp-group .inp-wrap input::-ms-input-placeholder {
-    color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .inp-group .inp-wrap input::placeholder {
-    color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .inp-group .inp-wrap input:focus {
-    border-bottom: 2px solid #009aff;
+  border-bottom: 2px solid #009aff;
 }
 
 .text-inp-group .inp-wrap input {
-    padding: 16px 30px 16px 10px;
+  padding: 16px 30px 16px 10px;
 }
+
