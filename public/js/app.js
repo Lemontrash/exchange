@@ -14770,12 +14770,20 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 __webpack_require__(/*! /Users/miroslaw/Documents/sources/php/exchange/resources/js/app.js */"./resources/js/app.js");
 __webpack_require__(/*! /Users/miroslaw/Documents/sources/php/exchange/resources/sass/profile.sass */"./resources/sass/profile.sass");
 __webpack_require__(/*! /Users/miroslaw/Documents/sources/php/exchange/resources/sass/main-page.sass */"./resources/sass/main-page.sass");
 __webpack_require__(/*! /Users/miroslaw/Documents/sources/php/exchange/resources/sass/upload-files.sass */"./resources/sass/upload-files.sass");
 __webpack_require__(/*! /Users/miroslaw/Documents/sources/php/exchange/resources/sass/common.sass */"./resources/sass/common.sass");
 module.exports = __webpack_require__(/*! /Users/miroslaw/Documents/sources/php/exchange/resources/assets/scss/admin/admin.scss */"./resources/assets/scss/admin/admin.scss");
+=======
+__webpack_require__(/*! C:\Users\ПК\Downloads\Open Server 5.2.9\OSPanel\domains\guru\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! C:\Users\ПК\Downloads\Open Server 5.2.9\OSPanel\domains\guru\resources\sass\profile.sass */"./resources/sass/profile.sass");
+__webpack_require__(/*! C:\Users\ПК\Downloads\Open Server 5.2.9\OSPanel\domains\guru\resources\sass\main-page.sass */"./resources/sass/main-page.sass");
+__webpack_require__(/*! C:\Users\ПК\Downloads\Open Server 5.2.9\OSPanel\domains\guru\resources\sass\upload-files.sass */"./resources/sass/upload-files.sass");
+module.exports = __webpack_require__(/*! C:\Users\ПК\Downloads\Open Server 5.2.9\OSPanel\domains\guru\resources\sass\common.sass */"./resources/sass/common.sass");
+>>>>>>> 003025b209929778442cca43207493a8edef8565
 
 
 /***/ })

@@ -57,11 +57,7 @@ class HomeController extends Controller
                 }
             }
         }
-<<<<<<< HEAD
-        
-=======
 //        dd($files);
->>>>>>> 003025b209929778442cca43207493a8edef8565
         return view('profileFilesHistory', ['files' => $files]);
 
 
