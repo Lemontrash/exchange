@@ -136,57 +136,62 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['ajaxurl'],
+  data: function data() {
+    return {
+      csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+      fileInputs: [{
+        'caption': 'ID picture',
+        name: 'id_picture',
+        file: null,
+        fileName: ''
+      }, {
+        'caption': 'Selfie picture',
+        name: 'selfie_picture',
+        file: null,
+        fileName: ''
+      }, {
+        'caption': 'Bank transfer',
+        name: 'bank_transfer',
+        file: null,
+        fileName: ''
+      }, {
+        'caption': 'DOD',
+        name: 'dod',
+        file: null,
+        fileName: ''
+      }]
+    };
+  },
+  methods: {
+    processFile: function processFile(event, file) {
+      console.log(file);
+      file.file = event.target.files[0];
+      file.fileName = event.target.files[0].name;
+    },
+    submitForm: function submitForm() {
+      var formData = new FormData();
+      this.fileInputs.forEach(function (fileInput) {
+        //var file = new File([fileInput.file], fileInput.fileName, {type: fileInput.file.type});
+        formData.append(fileInput.name, fileInput.file, fileInput.fileName);
+      });
+      axios({
+        url: '/api/verificateFiles',
+        method: 'post',
+        data: formData,
+        config: {
+          headers: {
+            'Content-Type': 'multipart/form-data'
+          }
+        }
+      }).then(function (resposnse) {
+        console.log(response);
+      });
+    }
+  },
   mounted: function mounted() {
-    console.log(this.ajaxurl);
+    console.log(this.csrf);
   }
 });
 
@@ -679,185 +684,102 @@ var render = function() {
     "form",
     {
       staticClass: "formBody",
-      attrs: { id: "upload_files", method: "POST", action: "" }
+      attrs: {
+        id: "upload_files",
+        method: "POST",
+        action: "/store",
+        enctype: "multipart/form-data"
+      }
     },
     [
-      _vm._v("\n    @csrf\n    "),
-      _c("div", { staticClass: "theme-row" }, [
-        _vm._m(0),
-        _vm._v(" "),
-        _c("label", { staticClass: "theme-btn upload-btn" }, [
-          _c(
-            "svg",
-            {
-              attrs: {
-                xmlns: "http://www.w3.org/2000/svg",
-                viewBox: "0 0 30 30"
-              }
-            },
-            [
-              _c("path", {
+      _c("input", {
+        attrs: { type: "hidden", name: "_token" },
+        domProps: { value: _vm.csrf }
+      }),
+      _vm._v(" "),
+      _vm._l(_vm.fileInputs, function(fileInput) {
+        return _c("div", { staticClass: "theme-row" }, [
+          _c("div", { staticClass: "inp-group text-inp-group" }, [
+            _c("label", { staticClass: "inp-caption", attrs: { for: "" } }, [
+              _vm._v(_vm._s(fileInput.caption))
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "inp-wrap" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: fileInput.fileName,
+                    expression: "fileInput.fileName"
+                  }
+                ],
                 attrs: {
-                  d:
-                    "M 6 3 C 4.895 3 4 3.895 4 5 L 4 22 C 4 23.105 4.895 24 6 24 L 14 24 L 14 11.414062 L 11.707031 13.707031 C 11.316031 14.098031 10.683969 14.098031 10.292969 13.707031 C 9.9019687 13.316031 9.9019687 12.683969 10.292969 12.292969 L 14.292969 8.2929688 C 14.487969 8.0979687 14.744 8 15 8 C 15.256 8 15.512031 8.0979688 15.707031 8.2929688 L 19.707031 12.292969 C 20.098031 12.683969 20.098031 13.316031 19.707031 13.707031 C 19.316031 14.098031 18.683969 14.098031 18.292969 13.707031 L 16 11.414062 L 16 24 L 24 24 C 25.105 24 26 23.105 26 22 L 26 5 C 26 3.895 25.105 3 24 3 L 6 3 z M 16 24 L 14 24 L 14 28 C 14 28.552 14.448 29 15 29 C 15.552 29 16 28.552 16 28 L 16 24 z"
+                  type: "text",
+                  name: fileInput.name + "_name",
+                  id: "",
+                  placeholder: "File",
+                  required: ""
+                },
+                domProps: { value: fileInput.fileName },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(fileInput, "fileName", $event.target.value)
+                  }
                 }
-              })
-            ]
-          ),
-          _vm._v("\n            Upload\n            "),
-          _c("input", { attrs: { type: "file", accept: "image/*", name: "" } })
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "theme-row" }, [
-        _vm._m(1),
-        _vm._v(" "),
-        _c("label", { staticClass: "theme-btn upload-btn" }, [
-          _c(
-            "svg",
-            {
-              attrs: {
-                xmlns: "http://www.w3.org/2000/svg",
-                viewBox: "0 0 30 30"
-              }
-            },
-            [
-              _c("path", {
+              }),
+              _vm._v(" "),
+              _c("i", { staticClass: "fas fa-check-circle" })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("label", { staticClass: "theme-btn upload-btn" }, [
+            _c(
+              "svg",
+              {
                 attrs: {
-                  d:
-                    "M 6 3 C 4.895 3 4 3.895 4 5 L 4 22 C 4 23.105 4.895 24 6 24 L 14 24 L 14 11.414062 L 11.707031 13.707031 C 11.316031 14.098031 10.683969 14.098031 10.292969 13.707031 C 9.9019687 13.316031 9.9019687 12.683969 10.292969 12.292969 L 14.292969 8.2929688 C 14.487969 8.0979687 14.744 8 15 8 C 15.256 8 15.512031 8.0979688 15.707031 8.2929688 L 19.707031 12.292969 C 20.098031 12.683969 20.098031 13.316031 19.707031 13.707031 C 19.316031 14.098031 18.683969 14.098031 18.292969 13.707031 L 16 11.414062 L 16 24 L 24 24 C 25.105 24 26 23.105 26 22 L 26 5 C 26 3.895 25.105 3 24 3 L 6 3 z M 16 24 L 14 24 L 14 28 C 14 28.552 14.448 29 15 29 C 15.552 29 16 28.552 16 28 L 16 24 z"
+                  xmlns: "http://www.w3.org/2000/svg",
+                  viewBox: "0 0 30 30"
                 }
-              })
-            ]
-          ),
-          _vm._v("\n            Upload\n            "),
-          _c("input", { attrs: { type: "file", accept: "image/*", name: "" } })
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "theme-row" }, [
-        _vm._m(2),
-        _vm._v(" "),
-        _c("label", { staticClass: "theme-btn upload-btn" }, [
-          _c(
-            "svg",
-            {
+              },
+              [
+                _c("path", {
+                  attrs: {
+                    d:
+                      "M 6 3 C 4.895 3 4 3.895 4 5 L 4 22 C 4 23.105 4.895 24 6 24 L 14 24 L 14 11.414062 L 11.707031 13.707031 C 11.316031 14.098031 10.683969 14.098031 10.292969 13.707031 C 9.9019687 13.316031 9.9019687 12.683969 10.292969 12.292969 L 14.292969 8.2929688 C 14.487969 8.0979687 14.744 8 15 8 C 15.256 8 15.512031 8.0979688 15.707031 8.2929688 L 19.707031 12.292969 C 20.098031 12.683969 20.098031 13.316031 19.707031 13.707031 C 19.316031 14.098031 18.683969 14.098031 18.292969 13.707031 L 16 11.414062 L 16 24 L 24 24 C 25.105 24 26 23.105 26 22 L 26 5 C 26 3.895 25.105 3 24 3 L 6 3 z M 16 24 L 14 24 L 14 28 C 14 28.552 14.448 29 15 29 C 15.552 29 16 28.552 16 28 L 16 24 z"
+                  }
+                })
+              ]
+            ),
+            _vm._v("\n            Upload\n            "),
+            _c("input", {
               attrs: {
-                xmlns: "http://www.w3.org/2000/svg",
-                viewBox: "0 0 30 30"
-              }
-            },
-            [
-              _c("path", {
-                attrs: {
-                  d:
-                    "M 6 3 C 4.895 3 4 3.895 4 5 L 4 22 C 4 23.105 4.895 24 6 24 L 14 24 L 14 11.414062 L 11.707031 13.707031 C 11.316031 14.098031 10.683969 14.098031 10.292969 13.707031 C 9.9019687 13.316031 9.9019687 12.683969 10.292969 12.292969 L 14.292969 8.2929688 C 14.487969 8.0979687 14.744 8 15 8 C 15.256 8 15.512031 8.0979688 15.707031 8.2929688 L 19.707031 12.292969 C 20.098031 12.683969 20.098031 13.316031 19.707031 13.707031 C 19.316031 14.098031 18.683969 14.098031 18.292969 13.707031 L 16 11.414062 L 16 24 L 24 24 C 25.105 24 26 23.105 26 22 L 26 5 C 26 3.895 25.105 3 24 3 L 6 3 z M 16 24 L 14 24 L 14 28 C 14 28.552 14.448 29 15 29 C 15.552 29 16 28.552 16 28 L 16 24 z"
+                type: "file",
+                accept: "image/*",
+                name: fileInput.name,
+                required: ""
+              },
+              on: {
+                change: function($event) {
+                  return _vm.processFile($event, fileInput)
                 }
-              })
-            ]
-          ),
-          _vm._v("\n            Upload\n            "),
-          _c("input", { attrs: { type: "file", accept: "image/*", name: "" } })
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "theme-row" }, [
-        _vm._m(3),
-        _vm._v(" "),
-        _c("label", { staticClass: "theme-btn upload-btn" }, [
-          _c(
-            "svg",
-            {
-              attrs: {
-                xmlns: "http://www.w3.org/2000/svg",
-                viewBox: "0 0 30 30"
               }
-            },
-            [
-              _c("path", {
-                attrs: {
-                  d:
-                    "M 6 3 C 4.895 3 4 3.895 4 5 L 4 22 C 4 23.105 4.895 24 6 24 L 14 24 L 14 11.414062 L 11.707031 13.707031 C 11.316031 14.098031 10.683969 14.098031 10.292969 13.707031 C 9.9019687 13.316031 9.9019687 12.683969 10.292969 12.292969 L 14.292969 8.2929688 C 14.487969 8.0979687 14.744 8 15 8 C 15.256 8 15.512031 8.0979688 15.707031 8.2929688 L 19.707031 12.292969 C 20.098031 12.683969 20.098031 13.316031 19.707031 13.707031 C 19.316031 14.098031 18.683969 14.098031 18.292969 13.707031 L 16 11.414062 L 16 24 L 24 24 C 25.105 24 26 23.105 26 22 L 26 5 C 26 3.895 25.105 3 24 3 L 6 3 z M 16 24 L 14 24 L 14 28 C 14 28.552 14.448 29 15 29 C 15.552 29 16 28.552 16 28 L 16 24 z"
-                }
-              })
-            ]
-          ),
-          _vm._v("\n            Upload\n            "),
-          _c("input", { attrs: { type: "file", accept: "image/*", name: "" } })
+            })
+          ])
         ])
-      ]),
+      }),
       _vm._v(" "),
-      _vm._m(4),
+      _vm._m(0),
       _vm._v(" "),
-      _vm._m(5)
-    ]
+      _vm._m(1)
+    ],
+    2
   )
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "inp-group text-inp-group" }, [
-      _c("label", { staticClass: "inp-caption", attrs: { for: "", id: "" } }, [
-        _vm._v("ID picture")
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "inp-wrap" }, [
-        _c("input", { attrs: { type: "text", name: "", placeholder: "File" } }),
-        _vm._v(" "),
-        _c("i", { staticClass: "fas fa-check-circle" })
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "inp-group text-inp-group" }, [
-      _c("label", { staticClass: "inp-caption", attrs: { for: "", id: "" } }, [
-        _vm._v("Selfi picture")
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "inp-wrap" }, [
-        _c("input", { attrs: { type: "text", name: "", placeholder: "File" } }),
-        _vm._v(" "),
-        _c("i", { staticClass: "fas fa-check-circle" })
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "inp-group text-inp-group" }, [
-      _c("label", { staticClass: "inp-caption", attrs: { for: "", id: "" } }, [
-        _vm._v("Bank transfer ")
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "inp-wrap" }, [
-        _c("input", { attrs: { type: "text", name: "", placeholder: "File" } }),
-        _vm._v(" "),
-        _c("i", { staticClass: "fas fa-check-circle" })
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "inp-group text-inp-group" }, [
-      _c("label", { staticClass: "inp-caption", attrs: { for: "", id: "" } }, [
-        _vm._v("DOD")
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "inp-wrap" }, [
-        _c("input", { attrs: { type: "text", name: "", placeholder: "File" } }),
-        _vm._v(" "),
-        _c("i", { staticClass: "fas fa-check-circle" })
-      ])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -13131,11 +13053,11 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/a.skuropatov/sites/exchange/resources/js/app.js */"./resources/js/app.js");
-__webpack_require__(/*! /Users/a.skuropatov/sites/exchange/resources/sass/profile.sass */"./resources/sass/profile.sass");
-__webpack_require__(/*! /Users/a.skuropatov/sites/exchange/resources/sass/main-page.sass */"./resources/sass/main-page.sass");
-__webpack_require__(/*! /Users/a.skuropatov/sites/exchange/resources/sass/upload-files.sass */"./resources/sass/upload-files.sass");
-module.exports = __webpack_require__(/*! /Users/a.skuropatov/sites/exchange/resources/sass/common.sass */"./resources/sass/common.sass");
+__webpack_require__(/*! C:\Users\ПК\Downloads\Open Server 5.2.9\OSPanel\domains\guru\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! C:\Users\ПК\Downloads\Open Server 5.2.9\OSPanel\domains\guru\resources\sass\profile.sass */"./resources/sass/profile.sass");
+__webpack_require__(/*! C:\Users\ПК\Downloads\Open Server 5.2.9\OSPanel\domains\guru\resources\sass\main-page.sass */"./resources/sass/main-page.sass");
+__webpack_require__(/*! C:\Users\ПК\Downloads\Open Server 5.2.9\OSPanel\domains\guru\resources\sass\upload-files.sass */"./resources/sass/upload-files.sass");
+module.exports = __webpack_require__(/*! C:\Users\ПК\Downloads\Open Server 5.2.9\OSPanel\domains\guru\resources\sass\common.sass */"./resources/sass/common.sass");
 
 
 /***/ })
