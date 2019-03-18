@@ -1,6 +1,6 @@
 $(document).ready(function() {
   //change all selects to user-friendly elements
-  $('select').niceSelect();
+  $('select.nice-select-trigger').niceSelect();
 
 
 
@@ -86,6 +86,12 @@ $(document).ready(function() {
     $('.tabs-container .tab-item').eq(tabIndex).addClass('active');
 
     // console.log(getElementIndex(this));
+  });
+
+  //personal data verification
+  $('#company').select2({
+    placeholder: "Company",
+    //allowClear: true
   });
 
 });

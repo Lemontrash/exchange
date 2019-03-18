@@ -21,7 +21,12 @@ Route::post('/store',   'UserController@store')                         ->name('
 Route::get('/getPdfFromProfile/{id}',       'PdfController@getPdfFromProfile')         ->name('getPdfFromProfile');
 
 
-
+Route::get('/personalDataVerify', function(){
+	return view('personalDataVerify');
+});
+Route::get('/exchange', function(){
+	return view('profileExchange');
+});
 
 //Email Verification Routes
 Route::get('email/verify', 'Auth\VerificationController@show')->name('verification.notice');

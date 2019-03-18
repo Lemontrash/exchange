@@ -122,7 +122,7 @@ class RegisterController extends Controller
             'countryTaxes'      => 'countryTaxes',
             'approved'          => 'yes'
         ]);
-        dd($file);
+        
         return $user;
 
     }
