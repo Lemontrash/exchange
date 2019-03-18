@@ -4,7 +4,7 @@ Auth::routes();
 
 
 
-Route::get('/admin', 'AdminController@getUsersWithFiles');
+Route::get('/admin/new-users', 'AdminController@getUsersWithFiles');
 //Basic Routes For Profile
 Route::get('/',             'HomeController@showHome')                  ->name('home');
 Route::get('/profile',      'HomeController@showProfileSettings')       ->name('profileSettings');
@@ -78,3 +78,7 @@ Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm
 Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('password.update');
 
 Route::post('/forgot', 'MailController@forgotPassword')->name('forgot');
+
+Route::get('/admin', function () {
+  return view('admin');
+});
