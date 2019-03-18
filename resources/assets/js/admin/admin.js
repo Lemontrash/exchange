@@ -1,3 +1,5 @@
+import Vue from 'vue';
+import VueRouter from 'vue-router';
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -5,9 +7,16 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('./bootstrap');
+import Index from './views/Index.vue';
 
-window.Vue = require('vue');
+const router = new VueRouter({
+  routes: [
+    { path: '/', component: Index },
+    { path: '/foo', component: Index }
+  ]
+});
+
+require('./bootstrap');
 
 Vue.config.devtools = true;
 Vue.config.performance = true;
@@ -22,6 +31,7 @@ import Admin from './components/Admin.vue';
 
 const app = new Vue({
   el: '#admin',
+  router,
   components: {
     Admin
   },
