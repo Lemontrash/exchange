@@ -29,33 +29,39 @@ class HomeController extends Controller
         return view('home');
     }
     public function showHome(){
-
         return view('welcome');
     }
     public function showPasswordResetViaEmail(){
-
         return view('auth.retrieveEmail');
     }
     public function showProfileSettings(){
-
         return view('profileSettings');
     }
     public function showFaq(){
-
         return view('profileFaq');
+    }
+    public function showUploadFiles(){
+        return view('uploadFiles');
     }
     public function showFilesHistory(){
         if (User::find(Auth::id())->role == 'individual'){
             $files = Files::where('user_id', Auth::id())->get();
         }
         elseif (User::find(Auth::id())->role == 'business'){
+            $files = Files::where('user_id', Auth::id())->get();
             $individuals = User::where('relation_id', Auth::id())->get();
-            $files[] = Files::where('user_id', Auth::id())->get();
             foreach ($individuals as $user){
-                $files[] = Files::where('user_id', $user->id);
+                $fileCollection = Files::where('user_id', $user->id)->get();
+                foreach ($fileCollection as $item) {
+                    $files[] = $item;
+                }
             }
         }
+<<<<<<< HEAD
         
+=======
+//        dd($files);
+>>>>>>> 003025b209929778442cca43207493a8edef8565
         return view('profileFilesHistory', ['files' => $files]);
 
 
