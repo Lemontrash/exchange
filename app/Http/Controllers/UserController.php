@@ -48,6 +48,15 @@ class UserController extends Controller
     }
 
     public function changePersonalInfo(Request $request){
+//        dd($request);
+//        $avatar = $request->file('avatar');
+//        $name_avatar = 'ava-'.Auth::id().'.png';
+//        dd($request);
+//        $path_avatar = Storage::putFileAs(
+//            'public', $avatar, $name_avatar
+//        );
+
+
         $email = $request->get('email');
         $firstName = $request->get('first_name');
         $lastName = $request->get('last_name');
@@ -67,6 +76,7 @@ class UserController extends Controller
         $user->dateOfBirth = $fullDate;
         $user->country = $country;
         $user->city = $city;
+//        $user->avatar = $path_avatar;
 //        dd($user);
         $user->save();
         return back();

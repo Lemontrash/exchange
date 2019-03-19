@@ -23,21 +23,21 @@
     </div>
     <div class="tabs-container">
         <div class="tab-item active">
-            <form class="profile-settings-form profile-form" method="post" action="{{route('home')}}">
+            <form class="profile-settings-form profile-form" method="post" action="{{route('changePersonalInfo')}}" enctype="multipart/form-data">
                 @csrf
-                <div class="theme-row">
-                    <div class="avatar-inp-group">
-                        <div class="avatar-preview"></div>
-                        <div class="avatar-label-col">
-                            <div class="inp-caption">Change Avatar</div>
-                            <div class="small-caption">Maximum size 120x100 PX <br>Max file size 5 MB</div>
-                            <label class="theme-btn btn-pink">
-                                Browse
-                                <input type="file" name="avatar" accept="image/*">
-                            </label>
-                        </div>
-                    </div>
-                </div>
+                {{--<div class="theme-row">--}}
+                    {{--<div class="avatar-inp-group">--}}
+                        {{--<div class="avatar-preview"></div>--}}
+                        {{--<div class="avatar-label-col">--}}
+                            {{--<div class="inp-caption">Change Avatar</div>--}}
+                            {{--<div class="small-caption">Maximum size 120x100 PX <br>Max file size 5 MB</div>--}}
+                            {{--<label class="theme-btn btn-pink">--}}
+                                {{--Browse--}}
+                                {{--<input type="file" name="avatar">--}}
+                            {{--</label>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
 
                 <div class="theme-row">
                     <div class="inp-group text-inp-group">
