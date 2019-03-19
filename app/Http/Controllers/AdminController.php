@@ -41,6 +41,7 @@ class AdminController extends Controller
 //            $files[] = AccountVerificationFiles::where('')
             $collection[] = $user;
         }
+//        dd($collection);
         return response()->json($collection);
     }
 
@@ -182,7 +183,7 @@ class AdminController extends Controller
             if ($file->dod_approved == 'yes'){
                 $statusDod = true;
             }
-
+        }
             $approved[] = [
                 'picture' => [
                     'id' => $file->id,
@@ -201,8 +202,19 @@ class AdminController extends Controller
                     'status' => $statusDod,
                 ]
             ];
-        }
-        return response()->json($approved);
+            $users[] = $this->getUsersWithFiles();
+//            dd($users);
+            foreach ($users as $collection) {
+                foreach ($collection->original as $u){
+                    $response[] = $u;
+                }
+            }
+
+
+            $response[] = $approved;
+//            dd($response);
+
+        return response()->json($response);
     }
 
 
