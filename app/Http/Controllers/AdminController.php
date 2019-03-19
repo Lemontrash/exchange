@@ -38,10 +38,10 @@ class AdminController extends Controller
         $files = AccountVerificationFiles::all();
         foreach ($files as $file) {
             $user = User::where('id', $file->user_id)->first();
-//            $files[] = AccountVerificationFiles::where('')
+
             $collection[] = $user;
         }
-//        dd($collection);
+        $collection[] = $this->showAccountVerifictionFiles();
         return response()->json($collection);
     }
 
@@ -202,13 +202,13 @@ class AdminController extends Controller
                     'status' => $statusDod,
                 ]
             ];
-            $users[] = $this->getUsersWithFiles();
-//            dd($users);
-            foreach ($users as $collection) {
-                foreach ($collection->original as $u){
-                    $response[] = $u;
-                }
-            }
+//            $users[] = $this->getUsersWithFiles();
+////            dd($users);
+//            foreach ($users as $collection) {
+//                foreach ($collection->original as $u){
+//                    $response[] = $u;
+//                }
+//            }
 
 
             $response[] = $approved;
