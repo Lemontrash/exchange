@@ -14,7 +14,7 @@
     <div class="inputRow">
       <div class="formInner">
         <label for="accountType">Account</label>
-        <select name="accountType" class="">
+        <select class="nice-select-trigger" name="accountType" class="">
           <option value="Individual" selected>Individual</option>
           <option value="Business">Business</option>
         </select>

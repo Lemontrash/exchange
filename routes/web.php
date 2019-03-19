@@ -12,6 +12,8 @@ Route::get('/faq',          'HomeController@showFaq')                   ->name('
 Route::get('/filesHistory', 'HomeController@showFilesHistory')          ->name('filesHistory');
 Route::get('/password',     'HomeController@showPasswordResetViaEmail') ->name('forgotPassword');
 Route::get('/contactUs',    'HomeController@showContactUsForm')         ->name('contactUs');
+Route::get('/deposit',       'HomeController@showDeposit')              ->name('deposit');
+Route::get('/personalData',       'HomeController@showpersonalDataVerify')   ->name('personalData');
 Route::get('/uploadFiles',  'HomeController@showUploadFiles')           ;
 Route::get('/logout',       'HomeController@logout')                    ->name('logout');
 Route::post('/contactUs',   'MessageController@send')                   ->name('sendMessage');
@@ -21,7 +23,12 @@ Route::post('/store',   'UserController@store')                         ->name('
 Route::get('/getPdfFromProfile/{id}',       'PdfController@getPdfFromProfile')         ->name('getPdfFromProfile');
 
 
-
+Route::get('/personalDataVerify', function(){
+	return view('personalDataVerify');
+});
+Route::get('/exchange', function(){
+	return view('profileExchange');
+});
 
 //Email Verification Routes
 Route::get('email/verify', 'Auth\VerificationController@show')->name('verification.notice');
@@ -60,7 +67,7 @@ Route::post('/admin/approvePdf/{id}',     'AdminController@approvePdf')->name('a
 Route::post('/admin/dismissPdf/{id}',     'AdminController@dismissPdf')->name('dismissPdf');
 Route::post('/admin/downloadPdf/{id}',    'AdminController@downloadPdf')->name('downloadPdf');
 
-
+Route::get('/admin/files',      'AdminController@showAccountVerifictionFiles');
 //?????????????????????????????????????????????
 //Route::post('/downloadPdf/{id}',    'PasswordController@changePassword')->name('changePassword');
 

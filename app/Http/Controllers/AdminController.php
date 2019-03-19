@@ -165,7 +165,44 @@ class AdminController extends Controller
 
     public function showAccountVerifictionFiles(){
         $files = AccountVerificationFiles::all();
-        return view('admin.accountVerificationFiles', ['files' => $files]);
+        foreach($files as $file){
+            $statusId = false;
+            $statusSelfie = false;
+            $statusBank = false;
+            $statusDod = false;
+            if ($file->id_approved == 'yes'){
+                $statusId = true;
+            }
+            if ($file->selfie_approved == 'yes'){
+                $statusSelfie = true;
+            }
+            if ($file->bank_approved == 'yes'){
+                $statusBank = true;
+            }
+            if ($file->dod_approved == 'yes'){
+                $statusDod = true;
+            }
+
+            $approved[] = [
+                'picture' => [
+                    'id' => $file->id,
+                    'status' => $statusId,
+                ],
+                'selfie' => [
+                    'id' => $file->id,
+                    'status' => $statusSelfie,
+                ],
+                'bank' => [
+                    'id' => $file->id,
+                    'status' => $statusBank,
+                ],
+                'dod' => [
+                    'id' => $file->id,
+                    'status' => $statusDod,
+                ]
+            ];
+        }
+        return response()->json($approved);
     }
 
 
