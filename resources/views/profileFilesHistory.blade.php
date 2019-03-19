@@ -91,7 +91,7 @@
           <div class="item">Pending</div>
         </div>
         <div class="tabs-container">
-          <div class="tab-item">
+          <div class="tab-item active">
             <table class="table alternate-rows-table">
               <thead>
                 <tr>
