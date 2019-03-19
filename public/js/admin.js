@@ -17976,7 +17976,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
 /* harmony import */ var _views_Index_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./views/Index.vue */ "./resources/assets/js/admin/views/Index.vue");
-/* harmony import */ var _views_Accepted_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./views/Accepted.vue */ "./resources/assets/js/admin/views/Accepted.vue");
+/* harmony import */ var _views_Accepted_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./views/Accepted.vue */ "./resources/assets/js/admin/views/Accepted.vue");
 /* harmony import */ var _components_Admin_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/Admin.vue */ "./resources/assets/js/admin/components/Admin.vue");
 
 
@@ -17997,7 +17997,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   }, {
     path: '/accepted',
     name: 'accepted',
-    component: _views_Accepted_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
+    component: _views_Accepted_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
   }]
 });
 
