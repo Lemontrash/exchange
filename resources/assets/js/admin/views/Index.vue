@@ -20,32 +20,12 @@
             <th>{{ user.created_at }}</th>
             <th>{{ user.mobile }}</th>
             <th>{{ user.email }}</th>
-            <th class="text-center"><i class="fa fa-check-circle"></i></th>
+            <th class="text-center">
+              <app-switch v-model="user.is_approved"/>
+            </th>
             <th class="text-center">Individual</th>
           </tr>
-          <tr v-if="opened.includes(user.id)">
-            <td class="user-menu" colspan="6">
-              <div class="files">
-                <div class="item">
-                  <div class="head">
-                    ID Picture
-                  </div>
-                  <div class="sub-text">
-                    Files Status
-                  </div>
-                  <app-switch v-model="user.approved.picture"/>
-                  <button>
-                    <i class="fa fa-copy"></i>
-                    View Files
-                    <i class="fa fa-angle-right"></i>
-                  </button>
-                </div>
-              </div>
-              <div class="transfer">
-
-              </div>
-            </td>
-          </tr>
+          <user-row :user.sync="user" v-if="opened.includes(user.id)"/>
         </template>
       </tbody>
     </table>
@@ -53,7 +33,9 @@
 </template>
 
 <script>
+import UserRow from './../components/UserRow.vue'
 import AppSwitch from './../components/Switch.vue'
+
 export default {
   data() {
     return {
@@ -61,14 +43,14 @@ export default {
       opened: [],
     };
   },
-  component: {
+  components: {
+    UserRow,
     AppSwitch,
   },
   methods: {
     sync() {
       axios.get('/admin/new-users').then(res => {
         res.data = res.data.map(n => {
-          n = n[0];
           n.approved = {
             picture: {
               id: 0,
@@ -87,6 +69,7 @@ export default {
               status: false,
             },
           };
+          n.is_approved = false;
           return n;
         });
         this.data = res.data;
@@ -108,21 +91,13 @@ export default {
 
 <style lang="scss" scoped>
 
+@import "~@/vars.scss";
+
 table {
+  border-bottom: 0 !important;
   .user {
     cursor: pointer;
-  }
-  .user-menu {
-    .files {
-      .item {
-        button {
-          color: #fff;
-        }
-      }
-    }
-    &:hover {
-      color: unset;
-    }
+    border-bottom: 1px solid $clr-d-gray;
   }
 }
 

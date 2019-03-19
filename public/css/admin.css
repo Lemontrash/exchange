@@ -3846,3 +3846,7 @@ button {
   white-space: nowrap;
 }
 
+.btn-blue {
+  box-shadow: 0px 5px 15px 0 rgba(0, 154, 255, 0.2);
+}
+
