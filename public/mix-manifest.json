@@ -1,9 +1,9 @@
 {
+    "/js/admin.js": "/js/admin.js",
     "/js/app.js": "/js/app.js",
     "/css/profile.css": "/css/profile.css",
     "/css/main-page.css": "/css/main-page.css",
     "/css/upload-files.css": "/css/upload-files.css",
-    "/css/formpage.css": "/css/formpage.css",
-    "/css/deposit.css": "/css/deposit.css",
-    "/css/common.css": "/css/common.css"
+    "/css/common.css": "/css/common.css",
+    "/css/admin.css": "/css/admin.css"
 }
