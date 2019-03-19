@@ -21,3 +21,9 @@
         }
     }
 </script>
+
+<style lang="scss" media="screen">
+.lol {
+  color: #fff;
+}
+</style>

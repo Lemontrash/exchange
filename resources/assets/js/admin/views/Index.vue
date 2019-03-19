@@ -24,7 +24,7 @@
             <th class="text-center">Individual</th>
           </tr>
           <tr v-if="opened.includes(user.id)">
-            <td class="user-menu" colspan="5">
+            <td class="user-menu" colspan="6">
               <div class="files">
                 <div class="item">
                   <div class="head">
