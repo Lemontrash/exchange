@@ -3,6 +3,7 @@
     <head>
         <title>@yield('title')</title>
        	@include('headAssets')
+        @yield('pageUniqueStyles')
         <meta name="csrf-token" content="{{ csrf_token() }}">
     </head>
    
