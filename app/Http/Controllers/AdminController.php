@@ -9,6 +9,7 @@ use App\User;
 use FontLib\EOT\File;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 class AdminController extends Controller
@@ -35,23 +36,25 @@ class AdminController extends Controller
     }
 
     public function getUsersWithFiles(){
-        $files = AccountVerificationFiles::all();
-        foreach ($files as $file) {
-            $user = User::where('id', $file->user_id)->first();
-            $collection[] = $user;
-        }
-        $i = 0;
-        foreach ($collection as $item) {
-            $response['user-'.$i]['id'] = $item->id;
-            $response['user-'.$i]['email'] = $item->email;
-            $response['user-'.$i]['firstName'] = $item->firstName;
-            $response['user-'.$i]['lastName'] = $item->lastName;
-            $response['user-'.$i]['city'] = $item->city;
-            $response['user-'.$i]['country'] = $item->country;
-            $response['user-'.$i]['phone'] = $item->mobile;
-            $i++;
-        }
-        return response()->json($response);
+//        $files = AccountVerificationFiles::all();
+//        foreach ($files as $file) {
+//            $user = User::where('id', $file->user_id)->first();
+//            $collection[] = $user;
+//        }
+//        $i = 0;
+//        foreach ($collection as $item) {
+//            $response['user-'.$i]['id'] = $item->id;
+//            $response['user-'.$i]['email'] = $item->email;
+//            $response['user-'.$i]['firstName'] = $item->firstName;
+//            $response['user-'.$i]['lastName'] = $item->lastName;
+//            $response['user-'.$i]['city'] = $item->city;
+//            $response['user-'.$i]['country'] = $item->country;
+//            $response['user-'.$i]['phone'] = $item->mobile;
+//            $i++;
+//        }
+        $response = DB::select('select * from users where id in (select user_id from account_verification_files)');
+        $response['approved'] = $this->showAccountVerifictionFiles();
+        return $response;
     }
 
     public function approvePdf($id){
