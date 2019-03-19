@@ -43,6 +43,12 @@ class HomeController extends Controller
     public function showUploadFiles(){
         return view('uploadFiles');
     }
+    public function showDeposit(){
+        return view('profileExchange');
+    }
+    public function showPersonalDataVerify(){
+        return view('personalDataVerify');
+    }
     public function showFilesHistory(){
         if (User::find(Auth::id())->role == 'individual'){
             $files = Files::where('user_id', Auth::id())->get();

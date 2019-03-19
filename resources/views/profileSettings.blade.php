@@ -11,7 +11,7 @@
 
 
 
-@include('profileParts/sidebar'
+@include('profileParts/sidebar')
 
 <div class="profile-content">
     <div class="page-title">Settings</div>
@@ -23,7 +23,7 @@
     </div>
     <div class="tabs-container">
         <div class="tab-item active">
-            <form class="profile-settings-form profile-form" method="post" action="{{route('changePersonalInfo')}}">
+            <form class="profile-settings-form profile-form" method="post" action="{{route('home')}}">
                 @csrf
                 <div class="theme-row">
                     <div class="avatar-inp-group">
@@ -121,8 +121,8 @@
                 <div class="theme-row">
                     <button class="theme-btn btn-blue" type="submit">Save Settings</button>
                 </div>
-                </form>
-                <form class="profile-settings-form profile-form" method="post" action="{{route('changePassword')}}">
+            </form>
+            <form class="profile-settings-form profile-form" method="post" action="{{route('changePassword')}}">
                 @csrf
                 <div class="theme-row">
                     <div class="inp-group text-inp-group">
@@ -153,7 +153,7 @@
                         <button class="theme-btn btn-blue" id="profile_update_password">Update</button>
                     </div>
                 </div>
-                </form>
+            </form>
 
         </div>
     </div>
