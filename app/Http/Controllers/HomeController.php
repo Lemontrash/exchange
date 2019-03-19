@@ -38,7 +38,7 @@ class HomeController extends Controller
         return view('profileSettings');
     }
     public function showFaq(){
-        return view('profileFaq');
+        return view('profileFAQ');
     }
     public function showUploadFiles(){
         return view('uploadFiles');

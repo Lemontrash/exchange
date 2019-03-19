@@ -18,9 +18,9 @@
                     <div class="menu-col">
                         <div class="menu-wrap">
                             <ul class="menu">
-                                <li class="menu-item active"><a href="#">Home</a></li>
-                                <li class="menu-item"><a href="{{route('faq')}}">About Us</a></li>
-                                <li class="menu-item"><a href="{{route('home')}}">Our Product</a></li>
+                                {{--<li class="menu-item active"><a href="#">Home</a></li>--}}
+                                {{--<li class="menu-item"><a href="{{route('faq')}}">About Us</a></li>--}}
+                                {{--<li class="menu-item"><a href="{{route('home')}}">Our Product</a></li>--}}
                                 {{--<li class="menu-item"><a href="{{route('home')}}">Home</a></li>--}}
                                 @if(\Illuminate\Support\Facades\Auth::check())
                                     <li class="menu-item"><a href="{{route('profileSettings')}}" class="theme-btn btn-pink">Profile</a></li>
