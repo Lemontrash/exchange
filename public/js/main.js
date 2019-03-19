@@ -1,6 +1,6 @@
 $(document).ready(function() {
   //change all selects to user-friendly elements
-  $('select.nice-select-trigger').niceSelect();
+  $('select.nice-select').niceSelect();
 
 
 
@@ -20,15 +20,32 @@ $(document).ready(function() {
   }
 
     //registration form validation
-  $('#registration input').on('change',function(e) {
-  	var thisInput = $(this);
-  	if(thisInput.val() != ''){
-  	  thisInput.parent('.formInner').removeClass('errorValid').addClass('succValid');
-  	}else {
-  	  thisInput.parent('.formInner').removeClass('succValid').addClass('errorValid');
-  	}
-
+  $('#registrationWrapper input, .profile-form input').on('input',function(e) {
+    validateInput(this);
   });
+
+  function validateInput(input){
+    if($(input).prop('required')){
+      var thisInput = $(input),
+          valid = false,
+          type = thisInput.prop('type');
+      if(type === 'email'){
+        var re = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
+        valid = re.test(thisInput.val());
+      }
+      else if(type === 'password'){
+        valid = thisInput.val().length < 6 ? false : true;
+      }
+      else if(thisInput.val() !== ''){
+        valid = true;
+      }
+      if(valid){
+        thisInput.parent().removeClass('errorValid').addClass('succValid');
+      }else {
+        thisInput.parent().removeClass('succValid').addClass('errorValid');
+      }
+    }
+  }
 
   //registration form ajax
   $('#registration').on('submit',function(e) {
@@ -92,6 +109,11 @@ $(document).ready(function() {
   $('#company').select2({
     placeholder: "Company",
     //allowClear: true
+  });
+  $('.show-user-files-row').on('click', function(){
+    var row = $(this).closest('tr').next(),
+        inner = row.find('.user-files-inner');
+    inner.slideToggle();
   });
 
 });

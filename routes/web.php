@@ -27,6 +27,9 @@ Route::get('/personalDataVerify', function(){
 Route::get('/exchange', function(){
 	return view('profileExchange');
 });
+Route::get('/acceptUser', function(){
+	return view('profileAcceptUser');
+});
 
 //Email Verification Routes
 Route::get('email/verify', 'Auth\VerificationController@show')->name('verification.notice');

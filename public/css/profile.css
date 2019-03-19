@@ -245,7 +245,8 @@ body {
   color: #fff;
 }
 
-.table th {
+.table th,
+.table td {
   padding: 20px;
   font-size: 14px;
   font-weight: normal;
@@ -270,10 +271,6 @@ body {
 .profile-content .table tbody tr {
   color: rgba(255, 255, 255, 0.5);
   transition: all 0.15s ease-in-out;
-}
-
-.profile-content .table tbody tr:hover {
-  color: #fff;
 }
 
 hr {

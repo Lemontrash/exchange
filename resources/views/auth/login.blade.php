@@ -6,11 +6,15 @@
 @endsection
 @yield('headAssetsSection')
 
+@section('pageUniqueStyles')
+    <link href="{{ asset('css/common.css') }}" rel="stylesheet">
+@endsection
+
 @section('content')
 
     <div id="registrationWrapper">
         <h1>Login</h1>
-        <form id="registration" class="formBody" method="POST" action="{{route('login')}}">
+        <form id="login" class="formBody" method="POST" action="{{route('login')}}">
             @csrf
             <div class="inputRow">
                 <div class="formInner">
@@ -22,7 +26,7 @@
             <div class="inputRow">
                 <div class="formInner">
                     <label for="">Password</label>
-                    <input type="password" name="password" placeholder="Password" required>
+                    <input type="password" name="password" placeholder="Password" minlength="6" maxlength="64" required>
                     <i class="fas fa-check-circle"></i>
                 </div>
             </div>

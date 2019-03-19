@@ -14708,6 +14708,17 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/sass/accept-user.sass":
+/*!*****************************************!*\
+  !*** ./resources/sass/accept-user.sass ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "./resources/sass/common.sass":
 /*!************************************!*\
   !*** ./resources/sass/common.sass ***!
@@ -14775,9 +14786,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 0:
-/*!******************************************************************************************************************************************************************************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/profile.sass ./resources/sass/main-page.sass ./resources/sass/upload-files.sass ./resources/sass/formpage.sass ./resources/sass/deposit.sass ./resources/sass/common.sass ***!
-  \******************************************************************************************************************************************************************************************************************************/
+/*!****************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/sass/profile.sass ./resources/sass/main-page.sass ./resources/sass/upload-files.sass ./resources/sass/formpage.sass ./resources/sass/deposit.sass ./resources/sass/accept-user.sass ./resources/sass/common.sass ***!
+  \****************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -14787,6 +14798,7 @@ __webpack_require__(/*! /Users/a.skuropatov/sites/exchange/resources/sass/main-p
 __webpack_require__(/*! /Users/a.skuropatov/sites/exchange/resources/sass/upload-files.sass */"./resources/sass/upload-files.sass");
 __webpack_require__(/*! /Users/a.skuropatov/sites/exchange/resources/sass/formpage.sass */"./resources/sass/formpage.sass");
 __webpack_require__(/*! /Users/a.skuropatov/sites/exchange/resources/sass/deposit.sass */"./resources/sass/deposit.sass");
+__webpack_require__(/*! /Users/a.skuropatov/sites/exchange/resources/sass/accept-user.sass */"./resources/sass/accept-user.sass");
 module.exports = __webpack_require__(/*! /Users/a.skuropatov/sites/exchange/resources/sass/common.sass */"./resources/sass/common.sass");
 
 

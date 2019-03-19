@@ -17,4 +17,5 @@ mix.js('resources/js/app.js', 'public/js')
    .sass('resources/sass/upload-files.sass', 'public/css')
    .sass('resources/sass/formpage.sass', 'public/css')
    .sass('resources/sass/deposit.sass', 'public/css')
+   .sass('resources/sass/accept-user.sass', 'public/css')
    .sass('resources/sass/common.sass', 'public/css');
