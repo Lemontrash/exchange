@@ -6,11 +6,11 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Builder;
-use Laravel\Passport\HasApiTokens;
+//use Laravel\Passport\HasApiTokens;
 
-class Individual extends Authenticatable
+class Individual extends Authenticatable implements MustVerifyEmail
 {
-    use HasApiTokens, Notifiable;
+    use  Notifiable;
     protected $table = 'users';
     protected $fillable = [
         'firstName', 'secondName', 'lastName', 'email','password','country','citizenship','place-of-birth',

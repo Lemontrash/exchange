@@ -38,11 +38,20 @@ class AdminController extends Controller
         $files = AccountVerificationFiles::all();
         foreach ($files as $file) {
             $user = User::where('id', $file->user_id)->first();
-
             $collection[] = $user;
         }
-        $collection[] = $this->showAccountVerifictionFiles();
-        return response()->json($collection);
+        $i = 0;
+        foreach ($collection as $item) {
+            $response['user-'.$i]['id'] = $item->id;
+            $response['user-'.$i]['email'] = $item->email;
+            $response['user-'.$i]['firstName'] = $item->firstName;
+            $response['user-'.$i]['lastName'] = $item->lastName;
+            $response['user-'.$i]['city'] = $item->city;
+            $response['user-'.$i]['country'] = $item->country;
+            $response['user-'.$i]['phone'] = $item->mobile;
+            $i++;
+        }
+        return response()->json($response);
     }
 
     public function approvePdf($id){
@@ -159,10 +168,6 @@ class AdminController extends Controller
         $messages = Messages::all();
         return view('admin.messages', ['messages' => $messages]);
     }
-//    public function showMembers(){
-//        $members = User::all();
-//        return view('admin.members', ['members' => $members]);
-//    }
 
     public function showAccountVerifictionFiles(){
         $files = AccountVerificationFiles::all();
@@ -183,37 +188,30 @@ class AdminController extends Controller
             if ($file->dod_approved == 'yes'){
                 $statusDod = true;
             }
-        }
+            }
             $approved[] = [
                 'picture' => [
                     'id' => $file->id,
+                    'user_id' => $file->user_id,
                     'status' => $statusId,
                 ],
                 'selfie' => [
                     'id' => $file->id,
+                    'user_id' => $file->user_id,
                     'status' => $statusSelfie,
                 ],
                 'bank' => [
                     'id' => $file->id,
+                    'user_id' => $file->user_id,
                     'status' => $statusBank,
                 ],
                 'dod' => [
                     'id' => $file->id,
+                    'user_id' => $file->user_id,
                     'status' => $statusDod,
                 ]
             ];
-//            $users[] = $this->getUsersWithFiles();
-////            dd($users);
-//            foreach ($users as $collection) {
-//                foreach ($collection->original as $u){
-//                    $response[] = $u;
-//                }
-//            }
-
-
             $response[] = $approved;
-//            dd($response);
-
         return response()->json($response);
     }
 

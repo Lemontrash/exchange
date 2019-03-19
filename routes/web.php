@@ -2,33 +2,29 @@
 
 Auth::routes();
 
-
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/profile',      'HomeController@showProfileSettings')       ->name('profileSettings');
+    Route::get('/faq',          'HomeController@showFaq')                   ->name('faq');
+    Route::get('/filesHistory', 'HomeController@showFilesHistory')          ->name('filesHistory');
+    Route::get('/password',     'HomeController@showPasswordResetViaEmail') ->name('forgotPassword');
+    Route::get('/contactUs',    'HomeController@showContactUsForm')         ->name('contactUs');
+    Route::get('/deposit',      'HomeController@showDeposit')               ->name('deposit');
+    Route::get('/uploadFiles',  'HomeController@showUploadFiles')           ;
+    Route::get('/logout',       'HomeController@logout')                    ->name('logout');
+    Route::get('/personalData', 'HomeController@showpersonalDataVerify')    ->name('personalData');
+    Route::post('/contactUs',   'MessageController@send')                   ->name('sendMessage');
+    Route::post('/store',   'UserController@store')                         ->name('storeVerificationFiles');
+    Route::post('/changePassword','PasswordController@changePassword')->name('changePassword');
+    Route::post('/changePersonalInfo','UserController@changePersonalInfo')->name('changePersonalInfo');
+});
 
 Route::get('/admin/new-users', 'AdminController@getUsersWithFiles');
+
 //Basic Routes For Profile
 Route::get('/',             'HomeController@showHome')                  ->name('home');
-Route::get('/profile',      'HomeController@showProfileSettings')       ->name('profileSettings');
-Route::get('/faq',          'HomeController@showFaq')                   ->name('faq');
-Route::get('/filesHistory', 'HomeController@showFilesHistory')          ->name('filesHistory');
-Route::get('/password',     'HomeController@showPasswordResetViaEmail') ->name('forgotPassword');
-Route::get('/contactUs',    'HomeController@showContactUsForm')         ->name('contactUs');
-Route::get('/deposit',      'HomeController@showDeposit')               ->name('deposit');
-Route::get('/personalData', 'HomeController@showpersonalDataVerify')    ->name('personalData');
-Route::get('/uploadFiles',  'HomeController@showUploadFiles')           ;
-Route::get('/logout',       'HomeController@logout')                    ->name('logout');
-Route::post('/contactUs',   'MessageController@send')                   ->name('sendMessage');
-
-Route::post('/store',   'UserController@store')                         ->name('storeVerificationFiles');
 
 Route::get('/getPdfFromProfile/{id}',       'PdfController@getPdfFromProfile')         ->name('getPdfFromProfile');
 
-
-Route::get('/personalDataVerify', function(){
-	return view('personalDataVerify');
-});
-Route::get('/exchange', function(){
-	return view('profileExchange');
-});
 
 //Email Verification Routes
 Route::get('email/verify', 'Auth\VerificationController@show')->name('verification.notice');
@@ -36,15 +32,6 @@ Route::get('email/verify/{id}', 'Auth\VerificationController@verify')->name('ver
 Route::get('email/resend', 'Auth\VerificationController@resend')->name('verification.resend');
 
 
-
-
-Route::post('/uploadFiles', function () {
-    return view('uploadFiles');
-});
-
-
-Route::post('/changePassword','PasswordController@changePassword')->name('changePassword');
-Route::post('/changePersonalInfo','UserController@changePersonalInfo')->name('changePersonalInfo');
 
 
 
