@@ -52,17 +52,5 @@ class LoginController extends Controller
         }
         else
             return back();
-//        $business = Business::all();
-//        foreach ($business as $busy) {
-//            if (Hash::check(Input::get('password'), $busy->password)){
-//
-//            }
-//        }
-//        $individual = Individual::all();
-//        foreach ($individual as $solo) {
-//            if (Hash::check(Input::get('password'), $solo->password)){
-//                //auth
-//            }
-//        }
     }
 }

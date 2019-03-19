@@ -8,7 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-    дай мне пароль
+    password reset
 {{$user[0]->email}}
 </body>
 </html>
