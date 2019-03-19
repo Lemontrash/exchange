@@ -17,7 +17,7 @@ class PasswordController extends Controller
         if(Hash::check($currentPassword, $user->password)){
             $user->password = Hash::make($newPassword);
             $user->save();
-            return response()->json($user, 200);
+            return back();
         }else{
             return back();
         }

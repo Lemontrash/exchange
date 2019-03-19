@@ -91,7 +91,7 @@
         <div class="item">Security</div>
     </div>
     <div class="tabs-container">
-        <div class="tab-item">
+        <div class="tab-item active">
             <form class="profile-settings-form profile-form" method="post" action="{{route('changePersonalInfo')}}">
                 @csrf
                 <div class="theme-row">

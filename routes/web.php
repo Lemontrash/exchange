@@ -60,7 +60,7 @@ Route::post('/admin/approvePdf/{id}',     'AdminController@approvePdf')->name('a
 Route::post('/admin/dismissPdf/{id}',     'AdminController@dismissPdf')->name('dismissPdf');
 Route::post('/admin/downloadPdf/{id}',    'AdminController@downloadPdf')->name('downloadPdf');
 
-
+Route::get('/admin/files',      'AdminController@showAccountVerifictionFiles');
 //?????????????????????????????????????????????
 //Route::post('/downloadPdf/{id}',    'PasswordController@changePassword')->name('changePassword');
 
