@@ -11,7 +11,7 @@
 
 
 
-@include('profileParts/sidebar'
+@include('profileParts/sidebar')
 
 <div class="profile-content">
     <div class="page-title">Settings</div>
