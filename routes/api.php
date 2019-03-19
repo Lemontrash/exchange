@@ -38,4 +38,5 @@
 //Route::post('admin/disapprove', 'AdminController@disapprove');
 //Route::post('admin/delete', 'AdminController@delete');
 //Route::post('admin/getPdf', 'AdminController@getPdf');
+Route::post('', 'AdminController@getPdf');
 ////Route::post('admin/', '');

@@ -12,7 +12,7 @@
     <div id="app">
         <div id="formPageWrapper">
             <h1>verification files</h1>
-            <verification-files-form :ajaxurl="{{json_encode($ajaxUrl)}}"></verification-files-form>
+            <verification-files-form></verification-files-form>
         </div>
     </div>
     <script src="/js/app.js"></script>

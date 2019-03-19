@@ -3,7 +3,7 @@
     <head>
         <title>@yield('title')</title>
        	@include('headAssets')
-
+        <meta name="csrf-token" content="{{ csrf_token() }}">
     </head>
    
     <body>

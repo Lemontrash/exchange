@@ -6,6 +6,7 @@ use App\AccountVerificationFiles;
 use App\Files;
 use App\Messages;
 use App\User;
+use FontLib\EOT\File;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade;
 use Illuminate\Support\Facades\Storage;
@@ -33,24 +34,86 @@ class AdminController extends Controller
         );
     }
 
-    public function approve($id){
+    public function getUsersWithFiles(){
+        $files = AccountVerificationFiles::all();
+        foreach ($files as $file) {
+            $user = User::where('id', $file->user_id)->first();
+//            $files[] = AccountVerificationFiles::where('')
+            $collection[] = $user;
+        }
+        return response()->json($collection);
+    }
+
+    public function approvePdf($id){
         $file = Files::find($id);
         $file->approved = 'yes';
         $file->save();
         return back();
     }
-    public function disapprove ($id){
+    public function approveId($id){
+        $file = AccountVerificationFiles::find($id);
+        $file->id_approved = 'yes';
+        $file->save;
+        return response()->json('success');
+    }
+    public function approveSelfie($id){
+        $file = AccountVerificationFiles::find($id);
+        $file->selfie_approved = 'yes';
+        $file->save;
+        return response()->json('success');
+    }
+    public function approveBank($id){
+        $file = AccountVerificationFiles::find($id);
+        $file->bank_approved = 'yes';
+        $file->save;
+        return response()->json('success');
+    }
+    public function approveDod($id){
+        $file = AccountVerificationFiles::find($id);
+        $file->dod_approved = 'yes';
+        $file->save;
+        return response()->json('success');
+    }
+
+
+    public function dismissPdf ($id){
         $file = Files::find($id);
         $file->approved = 'no';
         $file->save();
         return back();
     }
-    public function delete ($id){
+    public function dismissId($id){
+        $file = AccountVerificationFiles::find($id);
+        $file->id_approved = 'no';
+        $file->save;
+        return response()->json('success');
+    }
+    public function dismissSelfie ($id){
+        $file = AccountVerificationFiles::find($id);
+        $file->selfie_approved = 'no';
+        $file->save;
+        return response()->json('success');
+    }
+    public function dismissBank ($id){
+        $file = AccountVerificationFiles::find($id);
+        $file->bank_approved = 'no';
+        $file->save;
+        return response()->json('success');
+    }
+    public function dismissDod ($id){
+        $file = AccountVerificationFiles::find($id);
+        $file->dod_approved = 'no';
+        $file->save;
+        return response()->json('success');
+    }
+
+    public function deletePdf ($id){
         $file = Files::find($id);
         $file->delete();
         return back();
     }
-    public function getPdf($id){
+
+    public function downloadPdf($id){
         $file = Files::find($id);
         $data = [
             'country'           => $file->country,
@@ -74,20 +137,34 @@ class AdminController extends Controller
 
         return $pdf->stream();
     }
+    public function downloadId($id){
+        $file = AccountVerificationFiles::find($id)->first()->file_id;
+        return Storage::download($file);
+    }
+    public function downloadSelfie($id){
+        $file = AccountVerificationFiles::find($id)->first()->selfie;
+        return Storage::download($file);
+    }
+    public function downloadBank($id){
+        $file = AccountVerificationFiles::find($id)->first()->bank;
+        return Storage::download($file);
+    }
+    public function downloadDod($id){
+        $file = AccountVerificationFiles::find($id)->first()->dod;
+        return Storage::download($file);
+    }
 
     public function showMessages(){
         $messages = Messages::all();
         return view('admin.messages', ['messages' => $messages]);
     }
-    public function showMembers(){
-        $members = User::all();
-        return view('admin.members', ['members' => $members]);
-    }
+//    public function showMembers(){
+//        $members = User::all();
+//        return view('admin.members', ['members' => $members]);
+//    }
 
     public function showAccountVerifictionFiles(){
         $files = AccountVerificationFiles::all();
-
-
         return view('admin.accountVerificationFiles', ['files' => $files]);
     }
 

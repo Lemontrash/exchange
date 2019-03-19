@@ -39,53 +39,53 @@ $(document).ready(function() {
 	});
 	var selectedCOuntryCode = $('.country.active .dial-code').text();
 	getFormData['phoneNumber'] = selectedCOuntryCode + getFormData['phoneNumber'];
-	getFormData['_token'] = $('meta[name="csrf-token"]').attr('content');
-	//getFormData = $('getFormData').serialize();
-	console.log(getFormData);
-	// $.ajaxSetup({
-	//
-	// });
-	//
-	$.ajax({
-		type : 'POST',
-		url : 'api/register',
-		datatype : 'JSON',
-		data : getFormData,
-
-		success : function (response) {
-			console.log('Success');
-
-		},
-		error : function(response) {
-			console.log('Error');
-		}
-	})
+	console.log(getFormData); 
   	 
 	});
 
   //profile settings ajax
-  $('#profile_update_password').on('click', function(e){
-    // e.preventDefault();
-    var data = {
-      'current_password' : $('#profile_current_password').val(),
-      'new_password' : $('#profile_new_password').val(),
-      'retype_password' : $('#profile_retype_new_password').val()
-    }
-    if(data.new_password == data.retype_password && data.new_password !== ''){
-      $.ajax({
-        url: '/api/passwordChange',
-        data: JSON.stringify(data),
-        contentType: false,
-        processData: false,
-        method: 'POST',
-        success: function (data) {
-          console.log(data);
-        }
-      });
-    }
-    else{
-      alert('Passwords do not match');
-    }
+  // $('#profile_update_password').on('click', function(e){
+  //   e.preventDefault();
+  //   var data = {
+  //     'current_password' : $('#profile_current_password').val(),
+  //     'new_password' : $('#profile_new_password').val(),
+  //     'retype_password' : $('#profile_retype_new_password').val(),
+  //     '_token' : $(this).closest('form').find('input[name="_token"]').val()
+  //   }
+  //   console.log($(this).closest('form'));
+  //   if(data.new_password == data.retype_password && data.new_password !== ''){
+  //     $.ajax({
+  //       url: '/api/passwordChange',
+  //       data: data,
+  //       method: 'POST',
+  //       success: function (data) {
+  //         console.log(data);
+  //       }
+  //     });
+  //   }
+  //   else{
+  //     alert('Passwords do not match');
+  //   }
+  // });
+
+  //faq questions open/close
+  $('.faq-question').on('click', function(e){
+    $(this).parent().toggleClass('open');
+  });
+
+  //profile tabs switching
+  function getElementIndex (element) {
+    return Array.from(element.parentNode.children).indexOf(element);
+  }
+  $('.tab-switchers .item').on('click', function(){
+    // console.dir(this.parentNode.children);
+    var tabIndex = getElementIndex(this);
+    $('.tabs-container .tab-item').removeClass('active');
+    $('.tab-switchers .item').removeClass('active');
+    $(this).addClass('active');
+    $('.tabs-container .tab-item').eq(tabIndex).addClass('active');
+
+    // console.log(getElementIndex(this));
   });
 
 });

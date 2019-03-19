@@ -112,7 +112,7 @@
                 <div class="inp-group text-inp-group">
                     <label for="input_title" class="inp-caption">Title</label>
                     <div class="inp-wrap">
-                        <input type="email" name="title" placeholder="title" id="input_title">
+                        <input type="text" name="title" placeholder="title" id="input_title">
                         <i class="fas fa-check-circle"></i>
                     </div>
                 </div>
