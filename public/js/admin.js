@@ -3500,7 +3500,7 @@ var render = function() {
                 ? _c("tr", [
                     _c(
                       "td",
-                      { staticClass: "user-menu", attrs: { colspan: "5" } },
+                      { staticClass: "user-menu", attrs: { colspan: "6" } },
                       [
                         _c("div", { staticClass: "files" }, [
                           _c(
